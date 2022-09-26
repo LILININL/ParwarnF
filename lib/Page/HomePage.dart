@@ -88,7 +88,7 @@ class _HomePageState extends State<HomePage> {
   Container onboard() {
     return Container(
       constraints: const BoxConstraints(
-        maxHeight: 600,
+        maxHeight: double.infinity,
         minWidth: double.infinity,
       ),
       child: Padding(
