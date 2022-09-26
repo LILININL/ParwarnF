@@ -7,6 +7,10 @@ import 'package:getwidget/getwidget.dart';
 import 'package:plawarn/Page/Homepage.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
+import '../Screen/Button/FacebookLogin.dart';
+import '../Screen/Button/LineLogin.dart';
+import '../Screen/Button/Register.dart';
+import '../Screen/InputFrom/InputNumber.dart';
 import '../Theme/Scemacolor.dart';
 
 class LoginMobile extends StatefulWidget {
@@ -33,8 +37,6 @@ class _LoginMobileState extends State<LoginMobile> {
 
   final formKey = GlobalKey<FormState>();
   final TextEditingController controller = TextEditingController();
-  // String initialCountry = 'TH';
-  // PhoneNumber number = PhoneNumber(isoCode: 'TH');
 
   @override
   Widget build(BuildContext context) {
@@ -139,95 +141,6 @@ class _LoginMobileState extends State<LoginMobile> {
       ),
     );
   }
-
-  // void getPhoneNumber(String phoneNumber) async {
-  //   PhoneNumber number =
-  //       await PhoneNumber.getRegionInfoFromPhoneNumber(phoneNumber, 'TH');
-
-  //   setState(() {
-  //     this.number = number;
-  //   });
-  // }
-
-  // @override
-  // void dispose() {
-  //   controller.dispose();
-  //   super.dispose();
-  // }
-}
-
-class Register extends StatelessWidget {
-  const Register({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: () {},
-      child: const Text(
-        "สมัครสมาชิก",
-        style: TextStyle(
-          color: Color.fromRGBO(4, 94, 228, 0.8),
-          fontWeight: FontWeight.bold,
-          fontSize: 16,
-          fontFamily: 'NotoSansThai',
-        ),
-      ),
-    );
-  }
-}
-
-class FacebookLogin extends StatelessWidget {
-  const FacebookLogin({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
-      child: GFButton(
-        onPressed: () {},
-        text: "เข้าสู่ระบบโดยใช้ Facebook",
-        textStyle: const TextStyle(
-          fontSize: 18,
-          fontFamily: 'NotoSansThai',
-          fontWeight: FontWeight.bold,
-        ),
-        textColor: Colors.white,
-        color: const Color.fromRGBO(38, 125, 253, 0.8),
-        fullWidthButton: true,
-        size: 55,
-      ),
-    );
-  }
-}
-
-class LineLogin extends StatelessWidget {
-  const LineLogin({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
-      child: GFButton(
-        onPressed: () {},
-        text: "เข้าสู่ระบบโดยใช้ Line",
-        textStyle: const TextStyle(
-          fontSize: 18,
-          fontFamily: 'NotoSansThai',
-          fontWeight: FontWeight.bold,
-        ),
-        textColor: Colors.white,
-        color: const Color.fromRGBO(9, 202, 72, 0.8),
-        fullWidthButton: true,
-        size: 55,
-      ),
-    );
-  }
 }
 
 class ButtonCon extends StatelessWidget {
@@ -263,50 +176,6 @@ class ButtonCon extends StatelessWidget {
           )),
         ),
       ),
-    );
-  }
-}
-
-class FromNumber extends StatelessWidget {
-  const FromNumber({
-    Key? key,
-    required this.formKey,
-  }) : super(key: key);
-
-  final GlobalKey<FormState> formKey;
-
-  @override
-  Widget build(BuildContext context) {
-    return Form(
-      key: formKey,
-      child: Padding(
-          padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
-          child: IntlPhoneField(
-            disableLengthCheck: false,
-            dropdownTextStyle: const TextStyle(
-              color: Colors.black,
-              fontSize: 18,
-              fontFamily: 'NotoSansThai',
-            ),
-            decoration: InputDecoration(
-              border: OutlineInputBorder(
-                borderSide: const BorderSide(),
-                borderRadius: BorderRadius.circular(5),
-              ),
-              labelText: 'หมายเลขโทรศัพท์',
-            ),
-            dropdownIcon: const Icon(
-              Icons.arrow_drop_down,
-              size: 0,
-            ),
-            initialCountryCode: 'TH',
-            invalidNumberMessage: 'หมายเลขโทรศัพท์ไม่ถูกต้อง',
-            onChanged: (phone) {
-              print(
-                phone.completeNumber,
-              );
-            },
-          )),
     );
   }
 }
