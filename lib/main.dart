@@ -2,12 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:plawarn/Page/LoginMobile.dart';
 import 'package:plawarn/Page/VerifyOtp.dart';
 import 'Page/HomePage.dart';
+import 'package:flutter/services.dart';
 // import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'l10n/support_locale.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]).then((_) {
+    runApp(MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {

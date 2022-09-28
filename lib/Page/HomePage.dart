@@ -3,12 +3,12 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import '../Api/Get/user.dart';
+import '../Api/Post/sendotp/SendOtp.dart';
+import '../Screen/InputFrom/InputNumber.dart';
 import '../Theme/ScemaColor.dart';
 import '../class/Language.dart';
 import 'LoginMobile.dart';
-
-var Number = TextEditingController();
-var code = [];
 
 class HomePage extends StatefulWidget {
   static const String routeName = '/home';
@@ -22,6 +22,14 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   void _changeLanguage(Language language) {
     print(language.languageCode);
+  }
+
+  late Future<dynamic> futureuser;
+
+  @override
+  void initState() {
+    super.initState();
+    // futureuser = fetchuser();
   }
 
   @override
