@@ -35,59 +35,64 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        resizeToAvoidBottomInset: false,
         body: SafeArea(
-          child: ListView(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Expanded(
-                    flex: 1,
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-                      child: Image.asset(
-                        'assets/images/logo-horizontal.png',
-                        scale: 1,
-                      ),
-                    ),
-                  ),
-                  Expanded(
+          child: Container(
+            constraints: const BoxConstraints(
+              maxHeight: double.infinity,
+              minWidth: double.infinity,
+            ),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Expanded(
                       flex: 1,
                       child: Padding(
                         padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-                        child: DropdownButton(
-                          icon: Image.asset(
-                            'assets/flag/th.png',
-                            scale: 3,
-                          ),
-                          underline: const SizedBox(),
-                          items: Language.languageList()
-                              .map<DropdownMenuItem<Language>>(
-                                  (lang) => DropdownMenuItem(
-                                      value: lang,
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: <Widget>[
-                                          Text(lang.flag),
-                                          Text(lang.name)
-                                        ],
-                                      )))
-                              .toList(),
-                          onChanged: (Language? language) {
-                            _changeLanguage(language!);
-                          }, // Row>,
+                        child: Image.asset(
+                          'assets/images/logo-horizontal.png',
+                          scale: 1,
                         ),
-                      )),
-                ],
-              ),
-              const SizedBox(
-                height: 260,
-              ),
-              onboard(),
-            ],
+                      ),
+                    ),
+                    Expanded(
+                        flex: 1,
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                          child: DropdownButton(
+                            icon: Image.asset(
+                              'assets/flag/th.png',
+                              scale: 3,
+                            ),
+                            underline: const SizedBox(),
+                            items: Language.languageList()
+                                .map<DropdownMenuItem<Language>>(
+                                    (lang) => DropdownMenuItem(
+                                        value: lang,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: <Widget>[
+                                            Text(lang.flag),
+                                            Text(lang.name)
+                                          ],
+                                        )))
+                                .toList(),
+                            onChanged: (Language? language) {
+                              _changeLanguage(language!);
+                            }, // Row>,
+                          ),
+                        )),
+                  ],
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height / 3,
+                ),
+                onboard(),
+              ],
+            ),
           ),
         ),
         bottomNavigationBar: buttonbotopmbar(context));
@@ -100,7 +105,7 @@ class _HomePageState extends State<HomePage> {
         minWidth: double.infinity,
       ),
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(10, 5, 10, 20),
+        padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: const <Widget>[
@@ -134,7 +139,7 @@ class _HomePageState extends State<HomePage> {
 Container buttonbotopmbar(BuildContext context) {
   return Container(
     child: Padding(
-      padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+      padding: const EdgeInsets.fromLTRB(10, 0, 10, 40),
       child: GFButton(
         onPressed: () {
           Navigator.pushNamed(context, LoginMobile.routeName);

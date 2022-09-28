@@ -59,7 +59,9 @@ class _VerifyOtpState extends State<VerifyOtp> {
           icon: const Icon(Icons.arrow_back_ios),
           color: Colors.blueAccent,
           iconSize: 18,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
       ),
       body: GestureDetector(

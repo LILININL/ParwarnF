@@ -57,7 +57,9 @@ class _LoginMobileState extends State<LoginMobile> {
           icon: const Icon(Icons.arrow_back_ios),
           color: Colors.blueAccent,
           iconSize: 18,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
       ),
       body: Container(

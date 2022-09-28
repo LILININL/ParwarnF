@@ -35,9 +35,12 @@ class ButtonCon extends StatelessWidget {
         height: 50,
         child: TextButton(
           onPressed: () async {
-            await sendotp();
-
-            Navigator.pushNamed(context, '/VerifyOtp');
+            if (phoneNumber == null) {
+              return null;
+            } else {
+              await sendotp();
+              Navigator.pushNamed(context, '/VerifyOtp');
+            }
           },
           child: Center(
               child: Text(
@@ -96,6 +99,8 @@ class FromNumber extends StatelessWidget {
             onChanged: (phone) {
               localcode = phone.countryISOCode;
               phoneNumber = phone.completeNumber;
+              print(localcode);
+              print(phoneNumber);
             },
             validator: (phone) {
               if (phone!.completeNumber.isEmpty) {
