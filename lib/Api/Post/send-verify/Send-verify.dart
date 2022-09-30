@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:plawarn/Api/Post/send-verify/Json-data-otp.dart';
 
-import '../../../Screen/InputFrom/InputNumber.dart';
+import '../../../Widget/InputFrom/InputNumberForm.dart';
 import '../sendotp/SendOtp.dart';
 
 String? token;

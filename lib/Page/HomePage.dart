@@ -3,12 +3,12 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import '../Api/Get/user.dart';
+
 import '../Api/Post/sendotp/SendOtp.dart';
-import '../Screen/InputFrom/InputNumber.dart';
+import '../Widget/InputFrom/InputNumberForm.dart';
 import '../Theme/ScemaColor.dart';
 import '../class/Language.dart';
-import 'LoginMobile.dart';
+import '../Auth/Mobile_Auth/LoginMobile.dart';
 
 class HomePage extends StatefulWidget {
   static const String routeName = '/home';
@@ -29,6 +29,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
+    //islode = true;
     // futureuser = fetchuser();
   }
 
@@ -52,7 +53,7 @@ class _HomePageState extends State<HomePage> {
                       child: Padding(
                         padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
                         child: Image.asset(
-                          'assets/images/logo-horizontal.png',
+                          'assets/logo/logo-horizontal.png',
                           scale: 1,
                         ),
                       ),
@@ -104,42 +105,49 @@ class _HomePageState extends State<HomePage> {
         maxHeight: double.infinity,
         minWidth: double.infinity,
       ),
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: const <Widget>[
-            Image(
-              image: AssetImage('assets/images/onboard/onboard.png'),
-              fit: BoxFit.cover,
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(0, 30, 0, 5),
-              child: Text(
-                'ยินดีต้อนรับเข้าสู่ ปลาวาฬ',
-                style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Noto'),
+      child: Center(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: const <Widget>[
+              Image(
+                image: AssetImage('assets/images/onboard/onboard.png'),
+                fit: BoxFit.cover,
               ),
-            ),
-            Text(
-              'เราเป็นตลาดกลางแรงงานเพื่อเชื่อมต่อระหว่างผู้ใช้แรงงานและนายจ้าง',
-              style: TextStyle(
-                  fontSize: 20, color: Colors.black, fontFamily: 'Noto'),
-            ),
-          ],
+              Padding(
+                padding: EdgeInsets.fromLTRB(0, 15, 0, 5),
+                child: Text(
+                  'ยินดีต้อนรับเข้าสู่ ปลาวาฬ',
+                  style: TextStyle(
+                      fontSize: 24,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Noto'),
+                ),
+              ),
+              Text(
+                'เราเป็นตลาดกลางแรงงานเพื่อเชื่อมต่อระหว่างผู้ใช้แรงงานและนายจ้าง',
+                style: TextStyle(
+                    fontSize: 20, color: Colors.black, fontFamily: 'Noto'),
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
 }
+//
 
 Container buttonbotopmbar(BuildContext context) {
   return Container(
+    constraints: const BoxConstraints(
+      maxHeight: double.infinity,
+      minWidth: double.infinity,
+    ),
     child: Padding(
-      padding: const EdgeInsets.fromLTRB(10, 0, 10, 40),
+      padding: const EdgeInsets.fromLTRB(10, 0, 10, 25),
       child: GFButton(
         onPressed: () {
           Navigator.pushNamed(context, LoginMobile.routeName);

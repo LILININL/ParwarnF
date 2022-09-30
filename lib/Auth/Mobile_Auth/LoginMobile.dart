@@ -8,13 +8,12 @@ import 'package:intl_phone_field/phone_number.dart';
 import 'package:plawarn/Page/Homepage.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
-import '../Api/Get/user.dart';
-import '../Api/Post/sendotp/SendOtp.dart';
-import '../Screen/Button/FacebookLogin.dart';
-import '../Screen/Button/LineLogin.dart';
-import '../Screen/Button/Register.dart';
-import '../Screen/InputFrom/InputNumber.dart';
-import '../Theme/Scemacolor.dart';
+import '../../Widget/AppBar/NoTitlebar.dart';
+import '../../Widget/Button/FacebookLogin.dart';
+import '../../Widget/Button/LineLogin.dart';
+import '../../Widget/Button/Register.dart';
+import '../../Widget/InputFrom/InputNumberForm.dart';
+import '../../Theme/ScemaColor.dart';
 
 class LoginMobile extends StatefulWidget {
   static const String routeName = '/LoginMobile';
@@ -50,18 +49,7 @@ class _LoginMobileState extends State<LoginMobile> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
-          color: Colors.blueAccent,
-          iconSize: 18,
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-      ),
+      appBar: const NoTitleBar(),
       body: Container(
         constraints: const BoxConstraints(
           maxHeight: double.infinity,

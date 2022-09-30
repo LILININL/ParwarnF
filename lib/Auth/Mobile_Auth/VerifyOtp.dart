@@ -1,10 +1,12 @@
 import 'dart:async';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:flutter/material.dart';
+import 'package:plawarn/Page/CaeateUser/NamePage/NameForm.dart';
 
-import '../Api/Post/send-verify/Send-verify.dart';
-import '../Screen/InputFrom/InputNumber.dart';
-import '../Theme/ScemaColor.dart';
+import '../../Api/Post/sendotp/SendOtp.dart';
+import '../../Widget/AppBar/NoTitleBar.dart';
+import '../../Widget/InputFrom/InputNumberForm.dart';
+import '../../Theme/ScemaColor.dart';
 
 class VerifyOtp extends StatefulWidget {
   static const String routeName = '/VerifyOtp';
@@ -17,6 +19,7 @@ class VerifyOtp extends StatefulWidget {
   State<VerifyOtp> createState() => _VerifyOtpState();
 }
 
+//
 class _VerifyOtpState extends State<VerifyOtp> {
   TextEditingController? otpnumber = TextEditingController();
   StreamController<ErrorAnimationType>? errorController;
@@ -52,18 +55,7 @@ class _VerifyOtpState extends State<VerifyOtp> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
-          color: Colors.blueAccent,
-          iconSize: 18,
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-      ),
+      appBar: const NoTitleBar(),
       body: GestureDetector(
         onTap: () {
           FocusScope.of(context).requestFocus(FocusNode());
@@ -88,6 +80,7 @@ class _VerifyOtpState extends State<VerifyOtp> {
                   textAlign: TextAlign.start,
                 ),
               ),
+              //
               Padding(
                 padding: const EdgeInsets.fromLTRB(10, 5, 10, 10),
                 child: RichText(
@@ -221,6 +214,7 @@ class _VerifyOtpState extends State<VerifyOtp> {
                           () {
                             hasError = false;
                             snackBar("เข้าสู่ระบบสำเร็จ");
+                            Navigator.pushNamed(context, NameForm.routeName);
                           },
                         );
                       }

@@ -1,0 +1,62 @@
+
+export enum UserGenderEnum {
+  MALE = 'MALE',
+  FEMALE = 'FEMALE',
+  OTHER = 'OTHER',
+  NOT_SPECIFIED = 'NOT_SPECIFIED',
+}
+
+export enum UserPrefixEnum {
+  MISS = 'MISS',
+  MRS = 'MRS',
+  MR = 'MR',
+}
+
+export enum UserTypeEnum {
+  LABOURER = 'LABOURER',
+  EMPLOYER = 'EMPLOYER',
+  NOT_SPECIFIED = 'NOT_SPECIFIED',
+}
+
+export enum UserSocialEnum {
+  FACEBOOK = 'FACEBOOK',
+  GOOGLE = 'GOOGLE',
+  LINE = 'LINE',
+}
+
+export enum UserNationalIdentityStatusEnum {
+  NOT_VERIFIED = 'NOT_VERIFIED',
+  VERIFIED = 'VERIFIED',
+  REVIEWING = 'REVIEWING',
+  REJECTED = 'REJECTED',
+  REQUEST_REVIEW = 'REQUEST_REVIEW',
+}
+
+export enum UserIdentityVerificationStatusEnum {
+  NOT_VERIFIED = 'NOT_VERIFIED',
+  VERIFIED = 'VERIFIED',
+  REQUEST_REVIEW = 'REQUEST_REVIEW',
+  REVIEWING = 'REVIEWING',
+  REJECTED = 'REJECTED',
+}
+
+export enum UserIdentityVerificationTypeEnum {
+  ID_CARD = 'ID_CARD',
+  DRIVER_LICENSE = 'DRIVER_LICENSE',
+  PASSPORT = 'PASSPORT',
+}
+
+export enum UserIdentityVerificationDocumentOrderEnum {
+  DOCUMENT_1 = 'DOCUMENT_1',
+  DOCUMENT_2 = 'DOCUMENT_2',
+}
+
+export enum UserLoginStatusEnum {
+  ONLINE = 'ONLINE',
+  OFFLINE = 'OFFLINE',
+}
+
+export enum UserDevicePlatformEnum {
+  ANDROID = 'ANDROID',
+  IOS = 'IOS',
+}
