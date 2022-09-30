@@ -25,6 +25,12 @@ const List<String> Month = <String>[
 List<String> Year = <String>[];
 //List Day loop
 List<String> Day = <String>[];
+int daysInMonth(DateTime date) {
+  var firstDayThisMonth = new DateTime(date.year, date.month, date.day);
+  var firstDayNextMonth = new DateTime(firstDayThisMonth.year,
+      firstDayThisMonth.month + 1, firstDayThisMonth.day);
+  return firstDayNextMonth.difference(firstDayThisMonth).inDays;
+}
 
 class DateOfBirthForm extends StatefulWidget {
   static const String routeName = '/DateOfBirthForm';
