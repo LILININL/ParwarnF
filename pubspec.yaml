@@ -44,6 +44,8 @@ dependencies:
   kd_api_call: ^0.1.0
   get: ^4.6.5
   pin_code_fields: ^7.4.0
+  dio: ^4.0.6
+  image_picker: ^0.8.5+3
 
 dev_dependencies:
   flutter_test:

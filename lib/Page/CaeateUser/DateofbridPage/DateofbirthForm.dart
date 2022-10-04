@@ -232,10 +232,8 @@ class _DateOfBirthFormState extends State<DateOfBirthForm> {
           padding: const EdgeInsets.fromLTRB(10, 0, 10, 25),
           child: GFButton(
             onPressed: () {
-              dayl.add(day);
-              // month.add(mont);
-
-              //   Navigator.pushNamed(context, '/AvatarForm');
+              print(defalutGender);
+              Navigator.pushNamed(context, '/AvatarForm');
             },
             text: 'ดำเนินการต่อ',
             textStyle: const TextStyle(
