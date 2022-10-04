@@ -22,9 +22,9 @@ class VerifyOtp extends StatefulWidget {
 //
 class _VerifyOtpState extends State<VerifyOtp> {
   TextEditingController? otpnumber = TextEditingController();
+
   StreamController<ErrorAnimationType>? errorController;
   bool hasError = false;
-
   String? currentText;
 
   final otpkey = GlobalKey<FormState>();
@@ -118,14 +118,14 @@ class _VerifyOtpState extends State<VerifyOtp> {
                 key: otpkey,
                 child: Padding(
                     padding: const EdgeInsets.symmetric(
-                        vertical: 5.0, horizontal: 60),
+                        vertical: 5.0, horizontal: 10),
                     child: PinCodeTextField(
                       appContext: context,
                       pastedTextStyle: TextStyle(
                         color: Colors.green.shade600,
                         fontWeight: FontWeight.bold,
                       ),
-                      length: 4,
+                      length: 6,
                       obscureText: true,
                       obscuringCharacter: '*',
                       // obscuringWidget: const FlutterLogo(
@@ -156,9 +156,9 @@ class _VerifyOtpState extends State<VerifyOtp> {
                       onCompleted: (v) {
                         debugPrint("Completed");
                       },
-                      // onTap: () {
-                      //   print("Pressed");
-                      // },
+                      onTap: () {
+                        print("Pressed");
+                      },
                       onChanged: (value) {
                         debugPrint(value);
                         setState(() {
@@ -203,17 +203,17 @@ class _VerifyOtpState extends State<VerifyOtp> {
                     onPressed: () async {
                       otpkey.currentState!.validate();
                       // 1234 ก่อนนะครับ
-                      if (currentText?.length != 4 || currentText != "1234") {
+                      if (currentText?.length != 6 || currentText != "123456") {
                         errorController!.add(ErrorAnimationType.shake);
                         setState(() {
                           snackBar("OTP ไม่ถูกต้อง");
                         });
                       } else {
-                        await sendotp();
+                        // await sendotp();
                         setState(
                           () {
                             hasError = false;
-                            snackBar("เข้าสู่ระบบสำเร็จ");
+                            // snackBar("เข้าสู่ระบบสำเร็จ");
                             Navigator.pushNamed(context, NameForm.routeName);
                           },
                         );

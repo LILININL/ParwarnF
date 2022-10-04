@@ -41,12 +41,8 @@ class _AvatarFormState extends State<AvatarForm> {
             child: Stack(
               children: <Widget>[
                 CircleAvatar(
-                  backgroundColor: Colors.greenAccent[400],
                   radius: 80,
-                  child: const Text(
-                    'GeeksForGeeks',
-                    style: TextStyle(fontSize: 18, color: Colors.white),
-                  ),
+                  // backgroundImage: _imageFile == null ? AssetImage('') : FileImage(_imageFile.path),'),
                 ),
                 Positioned(
                     child: InkWell(
