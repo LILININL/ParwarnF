@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:plawarn/Model/Json/CreateProfile/CreateProfile.dart';
-import 'package:plawarn/Theme/ScemaColor.dart';
+
+import 'package:plawarn/Theme/Scemacolor.dart';
 
 class InputCreateNameFrom extends StatelessWidget {
   const InputCreateNameFrom({
@@ -22,9 +23,15 @@ class InputCreateNameFrom extends StatelessWidget {
           children: <Widget>[
             const Padding(
               padding: EdgeInsets.fromLTRB(0, 24, 0, 5),
-              child: Text('ชื่อ', style: textStyle16),
+              child: Text(
+                'ชื่อ',
+                style: textStyle16,
+              ),
             ),
             TextFormField(
+              keyboardType: TextInputType.name,
+              maxLines: 1,
+              autofocus: false,
               onSaved: (String? fristname) {
                 _Name.fristname = fristname;
               },
@@ -34,14 +41,27 @@ class InputCreateNameFrom extends StatelessWidget {
                 }
                 return null;
               },
-              decoration: const InputDecoration(
-                  hintText: 'ชื่อ', hintStyle: textStyle18),
+              decoration: InputDecoration(
+                isDense: true,
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(6),
+                  borderSide: const BorderSide(
+                    color: inputcolor,
+                    width: 1.0,
+                    style: BorderStyle.solid,
+                  ),
+                ),
+                border: const OutlineInputBorder(),
+                hintText: 'ชื่อ',
+                hintStyle: textStyle18,
+              ),
             ),
             const Padding(
               padding: EdgeInsets.fromLTRB(0, 20, 0, 5),
               child: Text('นามสกุล', style: textStyle16),
             ),
             TextFormField(
+              keyboardType: TextInputType.name,
               onSaved: (String? lastname) {
                 _Name.lastname = lastname;
               },
@@ -51,8 +71,19 @@ class InputCreateNameFrom extends StatelessWidget {
                 }
                 return null;
               },
-              decoration: const InputDecoration(
-                  hintText: 'นามสกุล', hintStyle: textStyle18),
+              decoration: InputDecoration(
+                  isDense: true,
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(6),
+                    borderSide: const BorderSide(
+                      color: inputcolor,
+                      width: 1.0,
+                      style: BorderStyle.solid,
+                    ),
+                  ),
+                  border: const OutlineInputBorder(),
+                  hintText: 'นามสกุล',
+                  hintStyle: textStyle18),
             ),
           ],
         ));

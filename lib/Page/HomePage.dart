@@ -36,6 +36,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Background,
         body: SafeArea(
           child: Container(
             constraints: const BoxConstraints(

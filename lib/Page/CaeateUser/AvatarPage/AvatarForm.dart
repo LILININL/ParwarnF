@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:plawarn/Theme/Scemacolor.dart';
 
-import '../../../Theme/ScemaColor.dart';
 import '../../../Widget/AppBar/CreateProfile.dart';
 import '../../../Widget/Button/ButtonCreateName.dart';
 import '../../../Widget/InputFrom/InputNumberForm.dart';
@@ -33,25 +33,11 @@ class _AvatarFormState extends State<AvatarForm> {
             child: Column(children: <Widget>[
               const Padding(
                 padding: EdgeInsets.fromLTRB(10, 24, 10, 0),
-                child: Text(
-                  'มาเริ่มสร้างโปรไฟล์กันเถอะ',
-                  style: TextStyle(
-                      fontFamily: 'Noto',
-                      fontSize: 24,
-                      color: textblack,
-                      fontWeight: FontWeight.bold),
-                ),
+                child: Text('มาเริ่มสร้างโปรไฟล์กันเถอะ', style: titletext24),
               ),
               const Padding(
                 padding: EdgeInsets.fromLTRB(0, 8, 0, 30),
-                child: Text(
-                  'รูปภาพโปรไฟล์ (ไม่บังคับ)',
-                  style: TextStyle(
-                      fontFamily: 'Noto',
-                      fontSize: 18,
-                      color: textblack54,
-                      fontWeight: FontWeight.bold),
-                ),
+                child: Text('รูปภาพโปรไฟล์ (ไม่บังคับ)', style: subtitletext18),
               ),
               Center(
                 child: CircleAvatar(
@@ -79,11 +65,7 @@ class _AvatarFormState extends State<AvatarForm> {
               return null;
             },
             text: 'ดำเนินการต่อ',
-            textStyle: const TextStyle(
-                fontFamily: 'Noto',
-                fontSize: 18,
-                color: Colors.white,
-                fontWeight: FontWeight.bold),
+            textStyle: buttonContinua,
             color: yell,
             fullWidthButton: true,
             size: 49,

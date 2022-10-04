@@ -2,35 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:plawarn/Model/Json/CreateProfile/CreateProfile.dart';
+import 'package:plawarn/Page/CaeateUser/DateofbridPage/Daet_Month_Year_json.dart';
+import 'package:plawarn/Theme/Scemacolor.dart';
 
-import '../../../Theme/ScemaColor.dart';
 import '../../../Widget/AppBar/CreateProfile.dart';
-
-//Lsit Month
-const List<String> Month = <String>[
-  'มกราคม',
-  'กุมภาพันธ์',
-  'มีนาคม',
-  'เมษายน',
-  'พฤษภาคม',
-  'มิถุนายน',
-  'กรกฎาคม',
-  'สิงหาคม',
-  'กันยายน',
-  'ตุลาคม',
-  'พฤศจิกายน',
-  'ธันวาคม',
-];
-//List Year loop
-List<String> Year = <String>[];
-//List Day loop
-List<String> Day = <String>[];
-int daysInMonth(DateTime date) {
-  var firstDayThisMonth = new DateTime(date.year, date.month, date.day);
-  var firstDayNextMonth = new DateTime(firstDayThisMonth.year,
-      firstDayThisMonth.month + 1, firstDayThisMonth.day);
-  return firstDayNextMonth.difference(firstDayThisMonth).inDays;
-}
 
 class DateOfBirthForm extends StatefulWidget {
   static const String routeName = '/DateOfBirthForm';
@@ -41,9 +16,11 @@ class DateOfBirthForm extends StatefulWidget {
 }
 
 class _DateOfBirthFormState extends State<DateOfBirthForm> {
-  final DateofBridkey = GlobalKey<FormState>();
-  final UserDateofBrid _DateofBrid = UserDateofBrid();
-  var dropdown;
+  // UserDateofBrith _DateofBrith = UserDateofBrith();
+  var day;
+  var year;
+  String? defalutMonth = '';
+  String? defalutGender = '';
 
   @override
   Widget build(BuildContext context) {
@@ -61,119 +38,189 @@ class _DateOfBirthFormState extends State<DateOfBirthForm> {
               padding: EdgeInsets.fromLTRB(10, 24, 10, 0),
               child: Text(
                 'มาเริ่มสร้างโปรไฟล์กันเถอะ',
-                style: textStyle24,
+                style: titletext24,
               ),
             ),
             const Padding(
               padding: EdgeInsets.fromLTRB(0, 8, 0, 20),
-              child: Text('วันเกิดและเพศ', style: textStyle18),
+              child: Text(
+                'วันเกิดและเพศ',
+                style: subtitletext18,
+              ),
+            ),
+            Row(
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.fromLTRB(15, 8, 0, 0),
+                  child: Text(
+                    'วันเกิด',
+                    style: subtitletext18,
+                    textAlign: TextAlign.start,
+                  ),
+                ),
+              ],
             ),
             Expanded(
-              child: Form(
-                key: DateofBridkey,
+              flex: 1,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(15, 5, 15, 15),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     Expanded(
-                      flex: 1,
-                      child: Column(
-                        children: <Widget>[
-                          const Padding(
-                            padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                            child: Text('วันเกิด', style: textStyle16),
+                        flex: 1,
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            border: Border.all(color: inputcolor),
+                            borderRadius: BorderRadius.circular(6),
                           ),
-                          TextFormField(
-                            onSaved: (String? date) {
-                              _DateofBrid.date = date;
+                          child: DropdownButton<String>(
+                            isExpanded: true,
+                            value: day,
+                            hint: const Text('วัน'),
+                            underline: Container(),
+                            icon: const SizedBox(),
+                            iconSize: 0,
+                            style: const TextStyle(
+                              color: Colors.black,
+                            ),
+                            itemHeight: 50,
+                            borderRadius: BorderRadius.circular(6),
+                            onChanged: (String? newValue) {
+                              setState(() {
+                                day = newValue!;
+                              });
                             },
-                            validator: (date) {
-                              if (date == null || date.isEmpty) {
-                                return 'กรุณากรอกเลขวันเกิด';
-                              }
-                              return null;
-                            },
-                            decoration: const InputDecoration(
-                                hintText: 'วัน', hintStyle: textStyle18),
+                            items: dayl
+                                .map<DropdownMenuItem<String>>((String day) {
+                              return DropdownMenuItem<String>(
+                                value: day,
+                                child: Text(day, textAlign: TextAlign.center),
+                              );
+                            }).toList(),
                           ),
-                        ],
+                        )),
+                    Expanded(
+                      flex: 2,
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          border: Border.all(color: inputcolor),
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                        child: DropdownButton<String>(
+                          isExpanded: true,
+                          value: defalutMonth,
+                          hint: const Text('เดือน'),
+                          underline: Container(),
+                          iconSize: 14,
+                          style: const TextStyle(color: Colors.black),
+                          itemHeight: 50,
+                          borderRadius: BorderRadius.circular(6),
+                          onChanged: (String? newmonth) {
+                            setState(() {
+                              defalutMonth = newmonth!;
+                            });
+                            print(defalutMonth);
+                          },
+                          items: [
+                            const DropdownMenuItem(
+                              value: '',
+                              child: Text('เลือกเดือน'),
+                            ),
+                            ...month.map<DropdownMenuItem<String>>((data) {
+                              return DropdownMenuItem(
+                                value: data['value'],
+                                child: Text(
+                                  data['monthname']!,
+                                ),
+                              );
+                            }).toList(),
+                          ],
+                        ),
                       ),
                     ),
                     Expanded(
                       flex: 1,
-                      child: Column(
-                        children: <Widget>[
-                          const Padding(
-                            padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                            child: Text('', style: textStyle16),
-                          ),
-                          TextFormField(
-                            onSaved: (String? month) {
-                              _DateofBrid.month = month;
-                            },
-                            validator: (month) {
-                              if (month == null || month.isEmpty) {
-                                return 'กรุณากรอกเดือน';
-                              }
-                              return null;
-                            },
-                            decoration: const InputDecoration(
-                                hintText: 'เดือน', hintStyle: textStyle18),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: Column(
-                        children: <Widget>[
-                          const Padding(
-                            padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                            child: Text('', style: textStyle16),
-                          ),
-                          TextFormField(
-                            onSaved: (String? year) {
-                              _DateofBrid.year = year;
-                            },
-                            validator: (year) {
-                              if (year == null || year.isEmpty) {
-                                return 'กรุณากรอกปี';
-                              }
-                              return null;
-                            },
-                            decoration: const InputDecoration(
-                                hintText: 'ปี', hintStyle: textStyle18),
-                          ),
-                        ],
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          border: Border.all(color: inputcolor),
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                        child: DropdownButton<String>(
+                          isExpanded: true,
+                          hint: const Text('ปี'),
+                          value: year,
+                          underline: Container(),
+                          icon: const SizedBox(),
+                          iconSize: 0,
+                          style: const TextStyle(color: Colors.black),
+                          onChanged: (String? newValue) {
+                            setState(() {
+                              year = newValue!;
+                            });
+                          },
+                          items: yearl
+                              .map<DropdownMenuItem<String>>((String year) {
+                            return DropdownMenuItem<String>(
+                              value: year,
+                              child: Text(year),
+                            );
+                          }).toList(),
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
             ),
-            Text('เพศ', style: textStyle16),
-            Container(
-              height: 50,
-              width: MediaQuery.of(context).size.width,
-              margin: const EdgeInsets.fromLTRB(10, 0, 10, 300),
-              child: DropdownButtonHideUnderline(
-                child: GFDropdown(
-                  padding: const EdgeInsets.all(10),
-                  borderRadius: BorderRadius.circular(5),
-                  border: const BorderSide(color: Colors.black12, width: 1),
-                  dropdownButtonColor: Colors.white,
-                  value: dropdown,
-                  onChanged: (newValue) {
-                    setState(() {
-                      dropdown = newValue;
-                    });
-                  },
-                  items: ['MALE', 'FEMALE', 'OTHER', 'NOT_SPECIFIED']
-                      .map((value) => DropdownMenuItem(
-                            value: value,
-                            child: Text(value),
-                          ))
-                      .toList(),
+            Row(
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.fromLTRB(15, 8, 0, 5),
+                  child: Text(
+                    'เพศ',
+                    style: subtitletext18,
+                    textAlign: TextAlign.start,
+                  ),
                 ),
+              ],
+            ),
+            Expanded(
+              flex: 5,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  border: Border.all(color: inputcolor),
+                  borderRadius: BorderRadius.circular(6),
+                ),
+                child: DropdownButton<String>(
+                    isExpanded: true,
+                    hint: const Text('ปี'),
+                    value: defalutGender,
+                    underline: Container(),
+                    icon: const SizedBox(),
+                    iconSize: 0,
+                    style: const TextStyle(color: Colors.black),
+                    onChanged: (newGender) {
+                      setState(() {
+                        defalutGender = newGender!;
+                      });
+                      print(defalutGender);
+                    },
+                    items: [
+                      const DropdownMenuItem(
+                        value: '',
+                        child: Text('เลือกเพศ'),
+                      ),
+                      ...usergender.map<DropdownMenuItem<String>>((data) {
+                        return DropdownMenuItem(
+                          value: data['value'],
+                          child: Text(
+                            data['gender']!,
+                          ),
+                        );
+                      }).toList(),
+                    ]),
               ),
             ),
           ],
@@ -188,16 +235,11 @@ class _DateOfBirthFormState extends State<DateOfBirthForm> {
           padding: const EdgeInsets.fromLTRB(10, 0, 10, 25),
           child: GFButton(
             onPressed: () {
-              if (DateofBridkey.currentState!.validate()) {
-                DateofBridkey.currentState!.save();
-                Navigator.pushNamed(context, '/AvatarForm');
-                print(dropdown);
-                print(_DateofBrid.date);
-                print(_DateofBrid.month);
-                print(_DateofBrid.year);
-                DateofBridkey.currentState!.reset();
-              }
-              return null;
+              yearl.add(year);
+              dayl.add(day);
+              // month.add(mont);
+
+              //   Navigator.pushNamed(context, '/AvatarForm');
             },
             text: 'ดำเนินการต่อ',
             textStyle: const TextStyle(

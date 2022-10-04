@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../Theme/ScemaColor.dart';
+import 'package:plawarn/Theme/Scemacolor.dart';
 
 class Profilebar extends StatelessWidget implements PreferredSizeWidget {
   const Profilebar({
@@ -20,14 +20,7 @@ class Profilebar extends StatelessWidget implements PreferredSizeWidget {
           Navigator.pop(context);
         },
       ),
-      title: const Text(
-        'สร้างโปรไฟล์',
-        style: TextStyle(
-            fontFamily: 'Noto',
-            fontSize: 18,
-            color: blurpimary,
-            fontWeight: FontWeight.bold),
-      ),
+      title: const Text('สร้างโปรไฟล์', style: appbartitle),
     );
   }
 

@@ -33,20 +33,21 @@ class _NameFormState extends State<NameForm> {
             child: Column(children: <Widget>[
               const Padding(
                 padding: EdgeInsets.fromLTRB(10, 24, 10, 0),
-                child: Text('มาเริ่มสร้างโปรไฟล์กันเถอะ', style: textStyle24),
+                child: Text('มาเริ่มสร้างโปรไฟล์กันเถอะ', style: titletext24),
               ),
               const Padding(
                 padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
-                child: Text('ชื่อของคุณ', style: textStyle18),
+                child: Text('ชื่อของคุณ', style: subtitletext18),
               ),
               Expanded(
                   child: Padding(
-                padding: const EdgeInsets.fromLTRB(15, 10, 15, 0),
+                padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
                 child: InputCreateNameFrom(Namekey: Namekey, Name: _Name),
               )),
             ]),
           ),
         ),
+        backgroundColor: Background,
         bottomNavigationBar:
             ButtonSaveCreateName(Namekey: Namekey, Name: _Name));
   }

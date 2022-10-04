@@ -1,17 +1,19 @@
+import 'package:flutter/src/material/dropdown.dart';
+
 class UserName {
   String? fristname;
   String? lastname;
   UserName({this.fristname, this.lastname});
 }
 
-class UserDateofBrid {
+class UserDateofBrith {
   String? date;
   String? month;
   String? year;
-  UserDateofBrid({this.date, this.month, this.year});
+  UserDateofBrith({this.date, this.month, this.year});
 }
 
 class UserGender {
   String? gender;
-  UserGender({this.gender});
+  UserGender({required String gender, required String value});
 }
