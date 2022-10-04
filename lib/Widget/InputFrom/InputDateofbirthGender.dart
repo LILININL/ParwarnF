@@ -21,13 +21,21 @@ List<DropdownMenuItem<String>> get SelectMonth {
   return [
     const DropdownMenuItem(
       value: '',
-      child: Text('เลือกเดือน'),
+      child: Align(
+        alignment: Alignment.centerLeft,
+        child: Text(
+          'เลือกเดือน',
+        ),
+      ),
     ),
     ...month.map<DropdownMenuItem<String>>((data) {
       return DropdownMenuItem(
         value: data['value'],
-        child: Text(
-          data['monthname']!,
+        child: Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            data['monthname']!,
+          ),
         ),
       );
     }).toList(),

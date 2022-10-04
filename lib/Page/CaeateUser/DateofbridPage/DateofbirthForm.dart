@@ -50,7 +50,7 @@ class _DateOfBirthFormState extends State<DateOfBirthForm> {
               ),
             ),
             Row(
-              children: <Widget>[
+              children: const <Widget>[
                 Padding(
                   padding: EdgeInsets.fromLTRB(15, 8, 0, 0),
                   child: Text(
@@ -64,84 +64,103 @@ class _DateOfBirthFormState extends State<DateOfBirthForm> {
             Expanded(
               flex: 1,
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(15, 5, 15, 15),
+                padding: const EdgeInsets.fromLTRB(11, 5, 11, 15),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    Expanded(
-                        flex: 1,
+                    SizedBox(
+                        height: 50,
+                        width: 85,
                         child: DecoratedBox(
                           decoration: BoxDecoration(
                             border: Border.all(color: inputcolor),
                             borderRadius: BorderRadius.circular(6),
                           ),
-                          child: DropdownButton<String>(
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(11, 0, 0, 0),
+                            child: DropdownButton<String>(
+                                isExpanded: true,
+                                value: day,
+                                hint: const Text(
+                                  'วัน',
+                                ),
+                                underline: Container(),
+                                icon: const SizedBox(),
+                                style: const TextStyle(
+                                  color: Colors.black,
+                                ),
+                                itemHeight: 50,
+                                borderRadius: BorderRadius.circular(6),
+                                onChanged: (String? newday) {
+                                  setState(() {
+                                    day = newday!;
+                                  });
+                                },
+                                items: SelectDay),
+                          ),
+                        )),
+                    SizedBox(
+                      height: 50,
+                      width: 130,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            border: Border.all(color: inputcolor),
+                            borderRadius: BorderRadius.circular(6),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(11, 0, 0, 0),
+                            child: DropdownButton<String>(
                               isExpanded: true,
-                              value: day,
-                              hint: const Text('วัน'),
+                              value: defalutMonth,
+                              hint: const Text('เดือน'),
                               underline: Container(),
-                              icon: const SizedBox(),
-                              iconSize: 0,
-                              style: const TextStyle(
-                                color: Colors.black,
-                              ),
+                              iconSize: 25,
+                              style: const TextStyle(color: Colors.black),
                               itemHeight: 50,
                               borderRadius: BorderRadius.circular(6),
-                              onChanged: (String? newday) {
+                              onChanged: (String? newmonth) {
                                 setState(() {
-                                  day = newday!;
+                                  defalutMonth = newmonth!;
                                 });
+                                print(defalutMonth);
                               },
-                              items: SelectDay),
-                        )),
-                    Expanded(
-                      flex: 2,
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          border: Border.all(color: inputcolor),
-                          borderRadius: BorderRadius.circular(6),
-                        ),
-                        child: DropdownButton<String>(
-                          isExpanded: true,
-                          value: defalutMonth,
-                          hint: const Text('เดือน'),
-                          underline: Container(),
-                          iconSize: 14,
-                          style: const TextStyle(color: Colors.black),
-                          itemHeight: 50,
-                          borderRadius: BorderRadius.circular(6),
-                          onChanged: (String? newmonth) {
-                            setState(() {
-                              defalutMonth = newmonth!;
-                            });
-                            print(defalutMonth);
-                          },
-                          items: SelectMonth,
+                              items: SelectMonth,
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                    Expanded(
-                      flex: 1,
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          border: Border.all(color: inputcolor),
-                          borderRadius: BorderRadius.circular(6),
+                    SizedBox(
+                      height: 50,
+                      width: 110,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            border: Border.all(color: inputcolor),
+                            borderRadius: BorderRadius.circular(6),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(11, 0, 0, 0),
+                            child: DropdownButton<String>(
+                                isExpanded: true,
+                                hint: const Text('ปี'),
+                                value: year,
+                                underline: Container(),
+                                icon: const SizedBox(),
+                                iconSize: 0,
+                                style: const TextStyle(color: Colors.black),
+                                onChanged: (String? newValue) {
+                                  setState(() {
+                                    year = newValue!;
+                                  });
+                                },
+                                items: SelectYear),
+                          ),
                         ),
-                        child: DropdownButton<String>(
-                            isExpanded: true,
-                            hint: const Text('ปี'),
-                            value: year,
-                            underline: Container(),
-                            icon: const SizedBox(),
-                            iconSize: 0,
-                            style: const TextStyle(color: Colors.black),
-                            onChanged: (String? newValue) {
-                              setState(() {
-                                year = newValue!;
-                              });
-                            },
-                            items: SelectYear),
                       ),
                     ),
                   ],
@@ -149,7 +168,7 @@ class _DateOfBirthFormState extends State<DateOfBirthForm> {
               ),
             ),
             Row(
-              children: <Widget>[
+              children: const <Widget>[
                 Padding(
                   padding: EdgeInsets.fromLTRB(15, 8, 0, 5),
                   child: Text(
@@ -162,26 +181,43 @@ class _DateOfBirthFormState extends State<DateOfBirthForm> {
             ),
             Expanded(
               flex: 5,
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  border: Border.all(color: inputcolor),
-                  borderRadius: BorderRadius.circular(6),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(15, 5, 15, 15),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Expanded(
+                      flex: 1,
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          border: Border.all(color: inputcolor),
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(11, 0, 0, 0),
+                          child: DropdownButton<String>(
+                            isExpanded: true,
+                            value: defalutGender,
+                            hint: const Text('เพศ'),
+                            underline: Container(),
+                            iconSize: 25,
+                            style: const TextStyle(color: Colors.black),
+                            itemHeight: 50,
+                            borderRadius: BorderRadius.circular(6),
+                            onChanged: (String? newGender) {
+                              setState(() {
+                                defalutGender = newGender!;
+                              });
+                              print(defalutGender);
+                            },
+                            items: SelectGender,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-                child: DropdownButton<String>(
-                    isExpanded: true,
-                    hint: const Text('ปี'),
-                    value: defalutGender,
-                    underline: Container(),
-                    icon: const SizedBox(),
-                    iconSize: 0,
-                    style: const TextStyle(color: Colors.black),
-                    onChanged: (newGender) {
-                      setState(() {
-                        defalutGender = newGender!;
-                      });
-                      print(defalutGender);
-                    },
-                    items: SelectGender),
               ),
             ),
           ],
