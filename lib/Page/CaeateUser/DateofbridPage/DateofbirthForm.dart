@@ -4,6 +4,7 @@ import 'package:getwidget/getwidget.dart';
 import 'package:plawarn/Model/Json/CreateProfile/CreateProfile.dart';
 import 'package:plawarn/Page/CaeateUser/DateofbridPage/Daet_Month_Year_json.dart';
 import 'package:plawarn/Theme/Scemacolor.dart';
+import 'package:plawarn/Widget/InputFrom/InputDateofbirthGender.dart';
 
 import '../../../Widget/AppBar/CreateProfile.dart';
 
@@ -76,31 +77,38 @@ class _DateOfBirthFormState extends State<DateOfBirthForm> {
                             borderRadius: BorderRadius.circular(6),
                           ),
                           child: DropdownButton<String>(
-                            isExpanded: true,
-                            value: day,
-                            hint: const Text('วัน'),
-                            underline: Container(),
-                            icon: const SizedBox(),
-                            iconSize: 0,
-                            style: const TextStyle(
-                              color: Colors.black,
-                            ),
-                            itemHeight: 50,
-                            borderRadius: BorderRadius.circular(6),
-                            onChanged: (String? newValue) {
-                              setState(() {
-                                day = newValue!;
-                              });
-                            },
-                            items: List<String>.generate(
-                                    31, (int index) => (index + 1).toString())
-                                .map<DropdownMenuItem<String>>((String year) {
-                              return DropdownMenuItem<String>(
-                                value: year,
-                                child: Text(year, textAlign: TextAlign.center),
-                              );
-                            }).toList(),
-                          ),
+                              isExpanded: true,
+                              value: day,
+                              hint: const Text('วัน'),
+                              underline: Container(),
+                              icon: const SizedBox(),
+                              iconSize: 0,
+                              style: const TextStyle(
+                                color: Colors.black,
+                              ),
+                              itemHeight: 50,
+                              borderRadius: BorderRadius.circular(6),
+                              onChanged: (String? newday) {
+                                setState(() {
+                                  day = newday!;
+                                });
+                              },
+                              items: [
+                                const DropdownMenuItem(
+                                  value: '',
+                                  child: Text('วัน'),
+                                ),
+                                ...List<String>.generate(31,
+                                        (int index) => (index + 1).toString())
+                                    .map<DropdownMenuItem<String>>(
+                                        (String year) {
+                                  return DropdownMenuItem<String>(
+                                    value: year,
+                                    child:
+                                        Text(year, textAlign: TextAlign.center),
+                                  );
+                                }).toList(),
+                              ]),
                         )),
                     Expanded(
                       flex: 2,
@@ -124,20 +132,7 @@ class _DateOfBirthFormState extends State<DateOfBirthForm> {
                             });
                             print(defalutMonth);
                           },
-                          items: [
-                            const DropdownMenuItem(
-                              value: '',
-                              child: Text('เลือกเดือน'),
-                            ),
-                            ...month.map<DropdownMenuItem<String>>((data) {
-                              return DropdownMenuItem(
-                                value: data['value'],
-                                child: Text(
-                                  data['monthname']!,
-                                ),
-                              );
-                            }).toList(),
-                          ],
+                          items: SelectDay,
                         ),
                       ),
                     ),
@@ -149,29 +144,19 @@ class _DateOfBirthFormState extends State<DateOfBirthForm> {
                           borderRadius: BorderRadius.circular(6),
                         ),
                         child: DropdownButton<String>(
-                          isExpanded: true,
-                          hint: const Text('ปี'),
-                          value: year,
-                          underline: Container(),
-                          icon: const SizedBox(),
-                          iconSize: 0,
-                          style: const TextStyle(color: Colors.black),
-                          onChanged: (String? newValue) {
-                            setState(() {
-                              year = newValue!;
-                            });
-                          },
-                          items: List<String>.generate(
-                              100,
-                              (int index) => (DateTime.now().year + 543 - index)
-                                  .toString()).map<DropdownMenuItem<String>>(
-                              (String year) {
-                            return DropdownMenuItem<String>(
-                              value: year,
-                              child: Text(year, textAlign: TextAlign.center),
-                            );
-                          }).toList(),
-                        ),
+                            isExpanded: true,
+                            hint: const Text('ปี'),
+                            value: year,
+                            underline: Container(),
+                            icon: const SizedBox(),
+                            iconSize: 0,
+                            style: const TextStyle(color: Colors.black),
+                            onChanged: (String? newValue) {
+                              setState(() {
+                                year = newValue!;
+                              });
+                            },
+                            items: SelectYear),
                       ),
                     ),
                   ],
@@ -211,20 +196,7 @@ class _DateOfBirthFormState extends State<DateOfBirthForm> {
                       });
                       print(defalutGender);
                     },
-                    items: [
-                      const DropdownMenuItem(
-                        value: '',
-                        child: Text('เลือกเพศ'),
-                      ),
-                      ...usergender.map<DropdownMenuItem<String>>((data) {
-                        return DropdownMenuItem(
-                          value: data['value'],
-                          child: Text(
-                            data['gender']!,
-                          ),
-                        );
-                      }).toList(),
-                    ]),
+                    items: SelectGender),
               ),
             ),
           ],
