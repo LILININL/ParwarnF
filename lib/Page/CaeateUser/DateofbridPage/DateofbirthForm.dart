@@ -92,11 +92,12 @@ class _DateOfBirthFormState extends State<DateOfBirthForm> {
                                 day = newValue!;
                               });
                             },
-                            items: dayl
-                                .map<DropdownMenuItem<String>>((String day) {
+                            items: List<String>.generate(
+                                    31, (int index) => (index + 1).toString())
+                                .map<DropdownMenuItem<String>>((String year) {
                               return DropdownMenuItem<String>(
-                                value: day,
-                                child: Text(day, textAlign: TextAlign.center),
+                                value: year,
+                                child: Text(year, textAlign: TextAlign.center),
                               );
                             }).toList(),
                           ),
@@ -160,11 +161,14 @@ class _DateOfBirthFormState extends State<DateOfBirthForm> {
                               year = newValue!;
                             });
                           },
-                          items: yearl
-                              .map<DropdownMenuItem<String>>((String year) {
+                          items: List<String>.generate(
+                              100,
+                              (int index) => (DateTime.now().year + 543 - index)
+                                  .toString()).map<DropdownMenuItem<String>>(
+                              (String year) {
                             return DropdownMenuItem<String>(
                               value: year,
-                              child: Text(year),
+                              child: Text(year, textAlign: TextAlign.center),
                             );
                           }).toList(),
                         ),
@@ -235,7 +239,6 @@ class _DateOfBirthFormState extends State<DateOfBirthForm> {
           padding: const EdgeInsets.fromLTRB(10, 0, 10, 25),
           child: GFButton(
             onPressed: () {
-              yearl.add(year);
               dayl.add(day);
               // month.add(mont);
 
