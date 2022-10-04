@@ -20,8 +20,8 @@ class _DateOfBirthFormState extends State<DateOfBirthForm> {
   // UserDateofBrith _DateofBrith = UserDateofBrith();
   var day;
   var year;
-  String? defalutMonth = '';
-  String? defalutGender = '';
+  var defalutMonth;
+  var defalutGender;
 
   @override
   Widget build(BuildContext context) {
@@ -96,6 +96,7 @@ class _DateOfBirthFormState extends State<DateOfBirthForm> {
                                   setState(() {
                                     day = newday!;
                                   });
+                                  print(day);
                                 },
                                 items: SelectDay),
                           ),
@@ -153,10 +154,11 @@ class _DateOfBirthFormState extends State<DateOfBirthForm> {
                                 icon: const SizedBox(),
                                 iconSize: 0,
                                 style: const TextStyle(color: Colors.black),
-                                onChanged: (String? newValue) {
+                                onChanged: (String? newyear) {
                                   setState(() {
-                                    year = newValue!;
+                                    year = newyear!;
                                   });
+                                  print(year);
                                 },
                                 items: SelectYear),
                           ),

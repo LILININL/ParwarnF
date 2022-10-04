@@ -5,7 +5,7 @@ List<DropdownMenuItem<String>> get SelectDay {
   return [
     const DropdownMenuItem(
       value: '',
-      child: Text('วัน'),
+      child: Text('เลือกวัน'),
     ),
     ...List<String>.generate(31, (int index) => (index + 1).toString())
         .map<DropdownMenuItem<String>>((String year) {
