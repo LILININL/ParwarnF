@@ -5,6 +5,22 @@ List<DropdownMenuItem<String>> get SelectDay {
   return [
     const DropdownMenuItem(
       value: '',
+      child: Text('วัน'),
+    ),
+    ...List<String>.generate(31, (int index) => (index + 1).toString())
+        .map<DropdownMenuItem<String>>((String year) {
+      return DropdownMenuItem<String>(
+        value: year,
+        child: Text(year, textAlign: TextAlign.center),
+      );
+    }).toList(),
+  ];
+}
+
+List<DropdownMenuItem<String>> get SelectMonth {
+  return [
+    const DropdownMenuItem(
+      value: '',
       child: Text('เลือกเดือน'),
     ),
     ...month.map<DropdownMenuItem<String>>((data) {

@@ -93,22 +93,7 @@ class _DateOfBirthFormState extends State<DateOfBirthForm> {
                                   day = newday!;
                                 });
                               },
-                              items: [
-                                const DropdownMenuItem(
-                                  value: '',
-                                  child: Text('วัน'),
-                                ),
-                                ...List<String>.generate(31,
-                                        (int index) => (index + 1).toString())
-                                    .map<DropdownMenuItem<String>>(
-                                        (String year) {
-                                  return DropdownMenuItem<String>(
-                                    value: year,
-                                    child:
-                                        Text(year, textAlign: TextAlign.center),
-                                  );
-                                }).toList(),
-                              ]),
+                              items: SelectDay),
                         )),
                     Expanded(
                       flex: 2,
@@ -132,7 +117,7 @@ class _DateOfBirthFormState extends State<DateOfBirthForm> {
                             });
                             print(defalutMonth);
                           },
-                          items: SelectDay,
+                          items: SelectMonth,
                         ),
                       ),
                     ),
