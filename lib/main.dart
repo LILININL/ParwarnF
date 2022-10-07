@@ -3,6 +3,7 @@ import 'package:plawarn/Modules/CreateProfile/Components/Page/AvatarPage/AvatarF
 import 'package:plawarn/Modules/CreateProfile/Components/Page/DateofbridPage/DateOfBirthPage.dart';
 import 'package:plawarn/Modules/CreateProfile/Components/Page/NamePage/NamePage.dart';
 import 'package:plawarn/Modules/Skills/Components/Page/SelectSkillsJop/AddSkillsPage.dart';
+import 'package:plawarn/Page/404Page.dart';
 
 import 'package:plawarn/Page/HomePage.dart';
 import 'package:plawarn/Modules/Auth/Components/Page/LoginMobile.dart';
@@ -41,6 +42,9 @@ class MyApp extends StatelessWidget {
       // supportedLocales: L10n.support,
       debugShowCheckedModeBanner: false,
       home: const HomePage(),
+      onUnknownRoute: (settings) {
+        return MaterialPageRoute(builder: (_) => const NotFoundPage());
+      },
       routes: {
         HomePage.routeName: (context) => const HomePage(),
         LoginMobile.routeName: (context) => const LoginMobile(),
