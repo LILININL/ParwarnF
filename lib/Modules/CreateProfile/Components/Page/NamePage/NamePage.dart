@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:plawarn/Components/Model/dtos/CreateProfile/CreateProfile.dart';
 import 'package:plawarn/Components/Theme/constants/ScemaTextStyle.dart';
-import 'package:plawarn/Components/Model/CreateProfile/CreateProfile.dart';
+
 import 'package:plawarn/Modules/CreateProfile/Components/Appbar/CreateProfile.dart';
 import 'package:plawarn/Modules/CreateProfile/Components/Widget/Button/ButtonCreateName.dart';
 import 'package:plawarn/Modules/CreateProfile/Components/Widget/Form/InputCreateNameForm.dart';

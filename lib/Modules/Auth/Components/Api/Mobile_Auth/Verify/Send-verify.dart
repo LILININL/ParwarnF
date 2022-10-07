@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:plawarn/Components/Model/Token/Token-data.dart';
+import 'package:plawarn/Components/Model/dtos/Token/Token-data.dart';
+
 import 'package:plawarn/Modules/Auth/Components/Widget/From/InputNumberForm.dart';
 
 import '../Otp/SendOtp.dart';

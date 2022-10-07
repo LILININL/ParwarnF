@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:plawarn/Components/Model/dtos/CreateProfile/CreateProfile.dart';
 
 import 'package:plawarn/Components/Theme/constants/ScemaTextStyle.dart';
 
 import 'package:plawarn/Components/Theme/constants/ScemaColor.dart';
-import 'package:plawarn/Components/Model/CreateProfile/CreateProfile.dart';
+
 import 'package:plawarn/Modules/CreateProfile/Components/Appbar/CreateProfile.dart';
 import 'package:plawarn/Modules/CreateProfile/Components/Widget/Button/ButtonConDateofBirth.dart';
 import 'package:plawarn/Modules/CreateProfile/Components/Widget/Form/InputDateofbirthGender.dart';
