@@ -1,32 +1,29 @@
-import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:plawarn/Components/Model/dtos/User/Profile-Info-Json.dart';
+
 import 'package:plawarn/Modules/Auth/Components/Api/Mobile_Auth/Verify/Send-verify.dart';
 import 'package:plawarn/Modules/CreateProfile/Components/Widget/Button/ButtonConDateofBirth.dart';
 import 'package:plawarn/Modules/CreateProfile/Components/Widget/Button/ButtonCreateName.dart';
 
-Map<String, String> requestHeaders = {
-  'Content-Type': 'application/json',
-  'Accept': '*/*',
-  'Authorization': 'Bearer $token',
-};
+void sendProfile() async {
+  var headers = {
+    'content-type': 'application/json; charset=utf-8',
+    'accept': '*/*\'',
+    'Authorization': 'Bearer $token'
+  };
+  var request =
+      http.Request('PUT', Uri.parse('https://api2.plawarn.com/profile'));
+  request.body =
+      '''{\r\n    "firstName": "$Lname",\r\n    "lastName": "$Lname",\r\n    
+      "dateOfBirth": {\r\n        "date": "$D",\r\n        "month": "$M",\r\n    
+          "year": "$Y"\r\n    },\r\n  
+            "gender": "$G"\r\n}''';
+  request.headers.addAll(headers);
 
-Future<dynamic> sendProfile() async {
-  const url = 'https://api2.plawarn.com/profile';
-  try {
-    final res = await http.put(Uri.parse(url),
-        headers: requestHeaders,
-        body: jsonEncode({
-          "firstName": '$Fname',
-          "lastName": '$Lname',
-          "dateOfBirth":
-              jsonEncode({"date": '$D', "month": '$M', "year": '$Y'}),
-          "gender": '$G',
-        }));
-    var data = ProfileInfo.fromJson(json.decode(res.body));
+  http.StreamedResponse response = await request.send();
 
-    print(res.body);
-  } catch (er) {
-    print(er);
+  if (response.statusCode == 200) {
+    print(await response.stream.bytesToString());
+  } else {
+    print(response.reasonPhrase);
   }
 }
