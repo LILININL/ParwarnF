@@ -25,13 +25,8 @@ Future<dynamic> sendProfile() async {
         }));
     var data = ProfileInfo.fromJson(json.decode(res.body));
 
-    print(res.statusCode);
+    print(res.body);
   } catch (er) {
-    // print(Fname.runtimeType);
-    // print(Lname.runtimeType);
-    // print(D.runtimeType);
-    // print(M.runtimeType);
-    // print(Y.runtimeType);
-    // print(G.runtimeType);
+    print(er);
   }
 }
