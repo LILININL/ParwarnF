@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:get/get.dart';
-import 'package:plawarn/Model/Json/verify-otp.dart';
+import 'package:plawarn/Model/Json/Otp/verify-otp.dart';
 import 'package:plawarn/Auth/Mobile_Auth/LoginMobile.dart';
 import 'package:plawarn/Auth/Mobile_Auth/VerifyOtp.dart';
 import '../../Api/Post/sendotp/SendOtp.dart';

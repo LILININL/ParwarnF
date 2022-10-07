@@ -28,10 +28,13 @@ class ButtonSaveCreateName extends StatelessWidget {
           onPressed: () {
             if (Namekey.currentState!.validate()) {
               Namekey.currentState!.save();
+              Fname = _Name.fristname;
+              Lname = _Name.lastname;
               Navigator.pushNamed(context, '/DateOfBirthForm');
               print(_Name.fristname);
               print(_Name.lastname);
-              Namekey.currentState!.reset();
+
+              // Namekey.currentState!.reset();
             }
             return null;
           },
@@ -49,3 +52,6 @@ class ButtonSaveCreateName extends StatelessWidget {
     );
   }
 }
+
+String? Fname;
+String? Lname;

@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:flutter/material.dart';
+import 'package:plawarn/Api/Post/send-verify/Send-verify.dart';
 import 'package:plawarn/Page/CaeateUser/NamePage/NameForm.dart';
 
-import '../../Api/Post/sendotp/SendOtp.dart';
 import '../../Widget/AppBar/NoTitleBar.dart';
 import '../../Widget/InputFrom/InputNumberForm.dart';
 import '../../Theme/ScemaColor.dart';
@@ -125,7 +125,7 @@ class _VerifyOtpState extends State<VerifyOtp> {
                         color: Colors.green.shade600,
                         fontWeight: FontWeight.bold,
                       ),
-                      length: 6,
+                      length: 4,
                       obscureText: true,
                       obscuringCharacter: '*',
                       // obscuringWidget: const FlutterLogo(
@@ -203,13 +203,13 @@ class _VerifyOtpState extends State<VerifyOtp> {
                     onPressed: () async {
                       otpkey.currentState!.validate();
                       // 1234 ก่อนนะครับ
-                      if (currentText?.length != 6 || currentText != "123456") {
+                      if (currentText?.length != 4 || currentText != "1234") {
                         errorController!.add(ErrorAnimationType.shake);
                         setState(() {
-                          snackBar("OTP ไม่ถูกต้อง");
+                          // snackBar("OTP ไม่ถูกต้อง");
                         });
                       } else {
-                        // await sendotp();
+                        await sendverify();
                         setState(
                           () {
                             hasError = false;

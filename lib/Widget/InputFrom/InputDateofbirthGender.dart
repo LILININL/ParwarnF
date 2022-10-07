@@ -49,7 +49,7 @@ List<DropdownMenuItem<String>> get SelectYear {
       child: Text('เลือกปี'),
     ),
     ...List<String>.generate(
-            100, (int index) => (DateTime.now().year + 543 - index).toString())
+            100, (int index) => (DateTime.now().year - index).toString())
         .map<DropdownMenuItem<String>>((String year) {
       return DropdownMenuItem<String>(
         value: year,

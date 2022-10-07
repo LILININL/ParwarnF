@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:plawarn/Api/Post/User/Profile-Info.dart';
 import 'package:plawarn/Model/Json/CreateProfile/CreateProfile.dart';
-import 'package:plawarn/Page/CaeateUser/DateofbridPage/Daet_Month_Year_json.dart';
+
 import 'package:plawarn/Theme/Scemacolor.dart';
+import 'package:plawarn/Widget/Button/ButtonConDateofBirth.dart';
+import 'package:plawarn/Widget/Button/ButtonCreateName.dart';
+
 import 'package:plawarn/Widget/InputFrom/InputDateofbirthGender.dart';
 
 import '../../../Widget/AppBar/CreateProfile.dart';
@@ -17,11 +21,13 @@ class DateOfBirthForm extends StatefulWidget {
 }
 
 class _DateOfBirthFormState extends State<DateOfBirthForm> {
-  // UserDateofBrith _DateofBrith = UserDateofBrith();
+  UserDateofBrith _DateofBrith = UserDateofBrith();
   var day;
   var year;
   var defalutMonth;
   var defalutGender;
+
+  late final UserName _Name;
 
   @override
   Widget build(BuildContext context) {
@@ -225,30 +231,11 @@ class _DateOfBirthFormState extends State<DateOfBirthForm> {
           ],
         ),
       ),
-      bottomNavigationBar: Container(
-        constraints: const BoxConstraints(
-          maxHeight: double.infinity,
-          minWidth: double.infinity,
-        ),
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(10, 0, 10, 25),
-          child: GFButton(
-            onPressed: () {
-              print(defalutGender);
-              Navigator.pushNamed(context, '/AvatarForm');
-            },
-            text: 'ดำเนินการต่อ',
-            textStyle: const TextStyle(
-                fontFamily: 'Noto',
-                fontSize: 18,
-                color: Colors.white,
-                fontWeight: FontWeight.bold),
-            color: yell,
-            fullWidthButton: true,
-            size: 49,
-          ),
-        ),
-      ),
+      bottomNavigationBar: ButtonConDateofBirth(
+          day: day,
+          defalutMonth: defalutMonth,
+          year: year,
+          defalutGender: defalutGender),
     );
   }
 }

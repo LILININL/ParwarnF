@@ -47,7 +47,7 @@ class _NameFormState extends State<NameForm> {
             ]),
           ),
         ),
-        backgroundColor: Background,
+        // backgroundColor: Background,
         bottomNavigationBar:
             ButtonSaveCreateName(Namekey: Namekey, Name: _Name));
   }

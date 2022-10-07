@@ -5,9 +5,9 @@ import 'package:plawarn/Api/Post/send-verify/Json-data-otp.dart';
 import '../../../Widget/InputFrom/InputNumberForm.dart';
 import '../sendotp/SendOtp.dart';
 
-String? token;
-String? type;
-Future<dynamic> sendotp() async {
+var token;
+var type;
+Future<dynamic> sendverify() async {
   const url = 'https://api2.plawarn.com/auth/verify-otp';
   try {
     final res = await http.post(Uri.parse(url), body: {

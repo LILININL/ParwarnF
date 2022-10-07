@@ -3,6 +3,7 @@ import 'package:plawarn/Auth/Mobile_Auth/LoginMobile.dart';
 import 'package:plawarn/Auth/Mobile_Auth/VerifyOtp.dart';
 import 'package:plawarn/Page/CaeateUser/AvatarPage/AvatarForm.dart';
 import 'package:plawarn/Page/CaeateUser/DateofbridPage/DateofbirthForm.dart';
+import 'package:plawarn/Page/StartSearchJop/SearchJop.dart';
 import 'Page/CaeateUser/NamePage/NameForm.dart';
 import 'Page/HomePage.dart';
 import 'package:flutter/services.dart';
@@ -43,6 +44,7 @@ class MyApp extends StatelessWidget {
         NameForm.routeName: (context) => const NameForm(),
         DateOfBirthForm.routeName: (context) => const DateOfBirthForm(),
         AvatarForm.routeName: (context) => const AvatarForm(),
+        SearchJop.routeName: (context) => const SearchJop(),
       },
     );
   }

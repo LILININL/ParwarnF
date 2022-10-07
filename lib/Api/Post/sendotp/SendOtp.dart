@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:plawarn/Api/Post/sendotp/Json-send-otp.dart';
 
-import '../../../Model/Json/verify-otp.dart';
+import '../../../Model/Json/Otp/verify-otp.dart';
 import '../../../Widget/InputFrom/InputNumberForm.dart';
 
 String? serviceid;
