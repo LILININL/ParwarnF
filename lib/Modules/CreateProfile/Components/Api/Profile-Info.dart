@@ -1,10 +1,9 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:plawarn/Api/Post/User/Profile-Info-Json.dart';
-import 'package:plawarn/Api/Post/send-verify/Send-verify.dart';
-import 'package:plawarn/Widget/Button/ButtonCreateName.dart';
-import 'package:plawarn/Widget/Button/ButtonConDateofBirth.dart';
-import '../sendotp/SendOtp.dart';
+import 'package:plawarn/Components/Model/dtos/User/Profile-Info-Json.dart';
+import 'package:plawarn/Modules/Auth/Components/Api/Mobile_Auth/Verify/Send-verify.dart';
+import 'package:plawarn/Modules/CreateProfile/Components/Widget/Button/ButtonConDateofBirth.dart';
+import 'package:plawarn/Modules/CreateProfile/Components/Widget/Button/ButtonCreateName.dart';
 
 Map<String, String> requestHeaders = {
   'Content-Type': 'application/json',
