@@ -7,7 +7,7 @@ import 'package:plawarn/Components/Theme/constants/ScemaColor.dart';
 
 import 'package:plawarn/Modules/CreateProfile/Components/Appbar/CreateProfile.dart';
 import 'package:plawarn/Modules/CreateProfile/Components/Widget/Button/ButtonConDateofBirth.dart';
-import 'package:plawarn/Modules/CreateProfile/Components/Widget/Form/InputDateofbirthGender.dart';
+import 'package:plawarn/Modules/CreateProfile/Components/Utils/InputDateofbirthGender.dart';
 
 class DateOfBirthPage extends StatefulWidget {
   static const String routeName = '/DateOfBirthPage';
