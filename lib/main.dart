@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:plawarn/Auth/Mobile_Auth/LoginMobile.dart';
-import 'package:plawarn/Auth/Mobile_Auth/VerifyOtp.dart';
-import 'package:plawarn/Page/CaeateUser/AvatarPage/AvatarForm.dart';
-import 'package:plawarn/Page/CaeateUser/DateofbridPage/DateofbirthForm.dart';
-import 'package:plawarn/Page/SearchJop/SearchJop.dart';
-import 'Page/CaeateUser/NamePage/NameForm.dart';
-import 'Page/HomePage.dart';
+import 'package:plawarn/Modules/CreateProfile/Components/Page/AvatarPage/AvatarForm.dart';
+import 'package:plawarn/Modules/CreateProfile/Components/Page/DateofbridPage/DateOfBirthPage.dart';
+import 'package:plawarn/Modules/CreateProfile/Components/Page/NamePage/NamePage.dart';
+import 'package:plawarn/Modules/Skills/Components/Page/SelectSkillsJop/AddSkillsPage.dart';
+
+import 'package:plawarn/Page/HomePage.dart';
+import 'package:plawarn/Modules/Auth/Components/Page/LoginMobile.dart';
+
+import 'package:plawarn/Modules/Auth/Components/Page/VerifyOtp.dart';
+import 'package:plawarn/Modules/SearchJop/Components/Page/SearchJop.dart';
+
 import 'package:flutter/services.dart';
 // import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 // import 'package:flutter_localizations/flutter_localizations.dart';
@@ -41,10 +45,11 @@ class MyApp extends StatelessWidget {
         HomePage.routeName: (context) => const HomePage(),
         LoginMobile.routeName: (context) => const LoginMobile(),
         VerifyOtp.routeName: (context) => const VerifyOtp(),
-        NameForm.routeName: (context) => const NameForm(),
-        DateOfBirthForm.routeName: (context) => const DateOfBirthForm(),
-        AvatarForm.routeName: (context) => const AvatarForm(),
+        NamePage.routeName: (context) => const NamePage(),
+        DateOfBirthPage.routeName: (context) => const DateOfBirthPage(),
+        AvatarPage.routeName: (context) => const AvatarPage(),
         SearchJop.routeName: (context) => const SearchJop(),
+        AddSkills.routeName: (context) => const AddSkills(),
       },
     );
   }
