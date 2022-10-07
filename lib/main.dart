@@ -3,7 +3,7 @@ import 'package:plawarn/Auth/Mobile_Auth/LoginMobile.dart';
 import 'package:plawarn/Auth/Mobile_Auth/VerifyOtp.dart';
 import 'package:plawarn/Page/CaeateUser/AvatarPage/AvatarForm.dart';
 import 'package:plawarn/Page/CaeateUser/DateofbridPage/DateofbirthForm.dart';
-import 'package:plawarn/Page/StartSearchJop/SearchJop.dart';
+import 'package:plawarn/Page/SearchJop/SearchJop.dart';
 import 'Page/CaeateUser/NamePage/NameForm.dart';
 import 'Page/HomePage.dart';
 import 'package:flutter/services.dart';

@@ -13,7 +13,7 @@ const graypimary = Color.fromRGBO(215, 226, 241, 0.8);
 const body = Color.fromRGBO(57, 63, 66, 0.8);
 const textwhite = Colors.white;
 const colorsuptitle = Color.fromRGBO(0, 0, 0, 0.8);
-
+const colorB = Color(0xFF66A4FB);
 //Text Style
 const textStyle16 = TextStyle(
   fontFamily: 'Noto',
@@ -68,6 +68,12 @@ const titletext24 = TextStyle(
 const subtitletext18 = TextStyle(
     fontFamily: 'Noto',
     fontSize: 18,
+    color: colorsuptitle,
+    fontWeight: FontWeight.w400);
+
+const subtitletext16 = TextStyle(
+    fontFamily: 'Noto',
+    fontSize: 16,
     color: colorsuptitle,
     fontWeight: FontWeight.w400);
 

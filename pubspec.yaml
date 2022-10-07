@@ -81,6 +81,8 @@ flutter:
     - assets/flag/
     - assets/images/onboard/onboard.png
     - assets/images/profile/avatar/empty-avatar.png
+    - assets/images/profile/avatar/looking-for-jobs-vector.png
+    - assets/images/profile/avatar/post-job-vector.png
     
 
   # An image asset can refer to one or more resolution-specific "variants", see
