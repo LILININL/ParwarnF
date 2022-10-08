@@ -13,8 +13,9 @@ class CardSearch1 extends StatelessWidget {
     return Expanded(
       flex: 1,
       child: GFCard(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
         image: Image.asset(
-            height: MediaQuery.of(context).size.height * 0.13,
+            height: MediaQuery.of(context).size.height * 0.17,
             width: MediaQuery.of(context).size.width,
             fit: BoxFit.cover,
             'assets/images/profile/avatar/looking-for-jobs-vector.png'),

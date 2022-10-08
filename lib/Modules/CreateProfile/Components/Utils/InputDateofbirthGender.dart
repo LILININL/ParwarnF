@@ -63,13 +63,17 @@ List<DropdownMenuItem<String>> get SelectGender {
   return [
     const DropdownMenuItem(
       value: '',
-      child: Text('เลือกเพศ'),
+      child: Text(
+        'เลือกเพศ',
+        textAlign: TextAlign.center,
+      ),
     ),
     ...usergender.map<DropdownMenuItem<String>>((data) {
       return DropdownMenuItem(
         value: data['value'],
         child: Text(
           data['gender']!,
+          textAlign: TextAlign.center,
         ),
       );
     }).toList(),

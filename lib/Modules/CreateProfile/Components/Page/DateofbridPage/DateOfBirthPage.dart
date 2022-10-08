@@ -67,14 +67,14 @@ class _DateOfBirthPageState extends State<DateOfBirthPage> {
             Expanded(
               flex: 1,
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(11, 5, 11, 15),
+                padding: const EdgeInsets.fromLTRB(0, 5, 0, 15),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     SizedBox(
                         height: 50,
-                        width: 85,
+                        width: 90,
                         child: DecoratedBox(
                           decoration: BoxDecoration(
                             border: Border.all(color: inputcolor),
@@ -106,16 +106,16 @@ class _DateOfBirthPageState extends State<DateOfBirthPage> {
                         )),
                     SizedBox(
                       height: 50,
-                      width: 130,
+                      width: 135,
                       child: Padding(
-                        padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                        padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                         child: DecoratedBox(
                           decoration: BoxDecoration(
                             border: Border.all(color: inputcolor),
                             borderRadius: BorderRadius.circular(6),
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.fromLTRB(11, 0, 0, 0),
+                            padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
                             child: DropdownButton<String>(
                               isExpanded: true,
                               value: defalutMonth,
@@ -139,9 +139,9 @@ class _DateOfBirthPageState extends State<DateOfBirthPage> {
                     ),
                     SizedBox(
                       height: 50,
-                      width: 110,
+                      width: 120,
                       child: Padding(
-                        padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                        padding: const EdgeInsets.fromLTRB(3, 0, 0, 0),
                         child: DecoratedBox(
                           decoration: BoxDecoration(
                             border: Border.all(color: inputcolor),
