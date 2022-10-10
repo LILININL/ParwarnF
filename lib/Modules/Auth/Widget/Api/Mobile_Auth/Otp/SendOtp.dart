@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:plawarn/Components/Model/dtos/Otp/get-otp.dart';
-import 'package:plawarn/Modules/Auth/Widget/From/InputNumberForm.dart';
+import 'package:plawarn/Modules/Auth/Widget/from/InputNumberForm.dart';
 
 String? serviceid;
 

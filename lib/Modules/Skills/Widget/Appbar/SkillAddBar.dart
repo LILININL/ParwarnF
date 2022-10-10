@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:plawarn/Components/Theme/constants/ScemaTextStyle.dart';
-import 'package:plawarn/Components/Theme/constants/ScemaColor.dart';
 
 class SkillsAddBar extends StatelessWidget implements PreferredSizeWidget {
   const SkillsAddBar({

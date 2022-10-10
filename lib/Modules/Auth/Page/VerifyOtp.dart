@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 
 import 'package:plawarn/Components/Theme/constants/ScemaColor.dart';
 
-import 'package:plawarn/Modules/Auth/Widget/Api/Mobile_Auth/Verify/Send-verify.dart';
-import 'package:plawarn/Modules/Auth/Widget/Appbar/NoTitleBar.dart';
-import 'package:plawarn/Modules/Auth/Widget/From/InputNumberForm.dart';
+import 'package:plawarn/Modules/auth/widget/api/mobile_auth/verify/Send-verify.dart';
+import 'package:plawarn/Modules/auth/widget/appbar/NoTitleBar.dart';
+import 'package:plawarn/Modules/auth/widget/from/InputNumberForm.dart';
 
 import 'package:plawarn/Modules/CreateProfile/Widget/Page/NamePage/NamePage.dart';
 
