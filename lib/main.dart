@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:plawarn/Modules/CreateProfile/Components/Page/AvatarPage/AvatarForm.dart';
-import 'package:plawarn/Modules/CreateProfile/Components/Page/DateofbridPage/DateOfBirthPage.dart';
-import 'package:plawarn/Modules/CreateProfile/Components/Page/NamePage/NamePage.dart';
-import 'package:plawarn/Modules/Skills/Components/Page/SelectSkillsJop/AddSkillsPage.dart';
+import 'package:plawarn/Modules/Auth/Page/LoginMobile.dart';
+import 'package:plawarn/Modules/Auth/Page/VerifyOtp.dart';
+import 'package:plawarn/Modules/CreateProfile/Widget/Page/AvatarPage/AvatarForm.dart';
+import 'package:plawarn/Modules/CreateProfile/Widget/Page/DateofbridPage/DateOfBirthPage.dart';
+import 'package:plawarn/Modules/CreateProfile/Widget/Page/NamePage/NamePage.dart';
+import 'package:plawarn/Modules/SearchJop/Page/SearchJop.dart';
+import 'package:plawarn/Modules/Skills/Page/SelectSkillsJop/AddSkillsPage.dart';
 import 'package:plawarn/Page/404Page.dart';
-
 import 'package:plawarn/Page/HomePage.dart';
-import 'package:plawarn/Modules/Auth/Components/Page/LoginMobile.dart';
-
-import 'package:plawarn/Modules/Auth/Components/Page/VerifyOtp.dart';
-import 'package:plawarn/Modules/SearchJop/Components/Page/SearchJop.dart';
-
 import 'package:flutter/services.dart';
 // import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 // import 'package:flutter_localizations/flutter_localizations.dart';
@@ -45,6 +42,7 @@ class MyApp extends StatelessWidget {
       onUnknownRoute: (settings) {
         return MaterialPageRoute(builder: (_) => const NotFoundPage());
       },
+
       routes: {
         HomePage.routeName: (context) => const HomePage(),
         LoginMobile.routeName: (context) => const LoginMobile(),
