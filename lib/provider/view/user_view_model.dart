@@ -1,13 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:plawarn/modules/auth/api/mobile_auth/send_verify/send_verify.dart';
-import 'package:plawarn/modules/createprofile/widget/page/namepage/name_page.dart';
-import 'package:plawarn/modules/searchjop/page/search_jop.dart';
-import 'package:plawarn/page/home_page.dart';
 import 'package:plawarn/provider/view/api/check_user.dart';
-
 import 'package:plawarn/widget/model/dtos/token/token_data.dart';
-import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // class Userview with ChangeNotifier {
@@ -39,6 +34,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 //     mobileNumber: '',
 //   );
 // }
+
 // ทดสอบ ลองย้ายมาไว้ ในไฟล์นี้ดู ว่าจะได้ไม่ต้องเรียกใช้ไฟล์อื่น ยังไม่เสร็จ!
 class Tokenview with ChangeNotifier {
   Future<bool> saveUser(GetTokendata token) async {
