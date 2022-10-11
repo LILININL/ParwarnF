@@ -1,8 +1,12 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:plawarn/modules/auth/page/login_mobile.dart';
+import 'package:plawarn/modules/searchjop/page/search_jop.dart';
 import 'package:plawarn/widget/model/dtos/ListData/Language.dart';
 import 'package:plawarn/widget/theme/constants/scema_color.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatefulWidget {
   static const String routeName = '/home';
@@ -18,13 +22,30 @@ class _HomePageState extends State<HomePage> {
     print(language.languageCode);
   }
 
-  late Future<dynamic> futureuser;
-
   @override
   void initState() {
     super.initState();
-    //islode = true;
-    // futureuser = fetchuser();
+    checkPreferacne();
+  }
+
+  Future<Null> checkPreferacne() async {
+    SharedPreferences Token = await SharedPreferences.getInstance();
+    String? token = Token.getString('token');
+    try {
+      if (token == null && token!.isEmpty) {
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) {
+          return const LoginMobile();
+        }));
+      } else {
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) {
+          return const SearchJop();
+        }));
+      }
+    } catch (e) {
+      print(e);
+    }
   }
 
   @override

@@ -10,6 +10,8 @@ import 'package:plawarn/modules/skills/page/selectskillsjop/add_skills.dart';
 import 'package:plawarn/page/404_page.dart';
 import 'package:plawarn/page/home_page.dart';
 import 'package:flutter/services.dart';
+import 'package:plawarn/provider/view/user_view_model.dart';
+import 'package:provider/provider.dart';
 // import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 // import 'package:flutter_localizations/flutter_localizations.dart';
 // import 'l10n/support_locale.dart';
@@ -27,33 +29,39 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(fontFamily: 'Noto'),
-      localizationsDelegates: const [
-        // AppLocalizations.delegate,
-        // GlobalMaterialLocalizations.delegate,
-        // // GlobalWidgetsLocalizations.delegate,
-        // // GlobalCupertinoLocalizations.delegate,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => Tokenview()),
+        // ChangeNotifierProvider(create: (_) => Userview()),
       ],
+      child: MaterialApp(
+        theme: ThemeData(fontFamily: 'Noto'),
+        localizationsDelegates: const [
+          // AppLocalizations.delegate,
+          // GlobalMaterialLocalizations.delegate,
+          // // GlobalWidgetsLocalizations.delegate,
+          // // GlobalCupertinoLocalizations.delegate,
+        ],
 
-      locale: const Locale('th', 'TH'),
-      // supportedLocales: L10n.support,
-      debugShowCheckedModeBanner: false,
-      home: const HomePage(),
-      onUnknownRoute: (settings) {
-        return MaterialPageRoute(builder: (_) => const NotFoundPage());
-      },
-
-      routes: {
-        HomePage.routeName: (context) => const HomePage(),
-        LoginMobile.routeName: (context) => const LoginMobile(),
-        VerifyOtp.routeName: (context) => const VerifyOtp(),
-        NamePage.routeName: (context) => const NamePage(),
-        DateOfBirthPage.routeName: (context) => const DateOfBirthPage(),
-        AvatarPage.routeName: (context) => const AvatarPage(),
-        SearchJop.routeName: (context) => const SearchJop(),
-        AddSkills.routeName: (context) => const AddSkills(),
-      },
+        locale: const Locale('th', 'TH'),
+        // supportedLocales: L10n.support,
+        debugShowCheckedModeBanner: false,
+        home: const HomePage(),
+        // initialRoute: '/LoginMobile',
+        onUnknownRoute: (settings) {
+          return MaterialPageRoute(builder: (_) => const NotFoundPage());
+        },
+        routes: {
+          HomePage.routeName: (context) => const HomePage(),
+          LoginMobile.routeName: (context) => const LoginMobile(),
+          VerifyOtp.routeName: (context) => const VerifyOtp(),
+          NamePage.routeName: (context) => const NamePage(),
+          DateOfBirthPage.routeName: (context) => const DateOfBirthPage(),
+          AvatarPage.routeName: (context) => const AvatarPage(),
+          SearchJop.routeName: (context) => const SearchJop(),
+          AddSkills.routeName: (context) => const AddSkills(),
+        },
+      ),
     );
   }
 }

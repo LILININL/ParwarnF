@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:plawarn/modules/auth/api/mobile_auth/send_otp/send_otp.dart';
 import 'package:plawarn/widget/theme/constants/scema_color.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ButtonCon extends StatelessWidget {
   const ButtonCon({
@@ -89,9 +90,13 @@ class FromNumber extends StatelessWidget {
             initialCountryCode: 'TH',
             invalidNumberMessage:
                 'หมายเลขโทรศัพท์ไม่ถูกต้อง ไม่ต้องเติม 0 ในหมายเลข',
-            onChanged: (phone) {
+            onChanged: (phone) async {
               phoneNumber = phone.completeNumber;
               localcode = phone.countryISOCode;
+              SharedPreferences savephone =
+                  await SharedPreferences.getInstance();
+              await savephone.setString('phone', phoneNumber!);
+              await savephone.setString('localcode', localcode!);
               print(phoneNumber);
               print(localcode);
             },

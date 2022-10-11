@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:plawarn/modules/createprofile/widget/utils/appbar/create_profile.dart';
 import 'package:plawarn/modules/createprofile/widget/utils/button/button_createname.dart';
 import 'package:plawarn/modules/createprofile/widget/utils/form/inputcreatename_form.dart';
+import 'package:plawarn/provider/view/user_view_model.dart';
 import 'package:plawarn/widget/model/dtos/createprofile/create_profile.dart';
 
 import 'package:plawarn/widget/theme/constants/scema_textstyle.dart';
@@ -15,6 +16,12 @@ class NamePage extends StatefulWidget {
 }
 
 class _NamePageState extends State<NamePage> {
+  @override
+  void initState() {
+    super.initState();
+    checkUser();
+  }
+
   UserName _Name = UserName();
   final Namekey = GlobalKey<FormState>();
 

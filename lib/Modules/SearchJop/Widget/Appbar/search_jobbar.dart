@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:plawarn/page/home_page.dart';
+import 'package:plawarn/provider/view/user_view_model.dart';
 import 'package:plawarn/widget/theme/constants/scema_color.dart';
 
 class SearcjJobbar extends StatelessWidget implements PreferredSizeWidget {
@@ -16,8 +18,12 @@ class SearcjJobbar extends StatelessWidget implements PreferredSizeWidget {
         icon: const Icon(Icons.arrow_back_ios),
         color: Colors.white,
         iconSize: 18,
-        onPressed: () {
-          Navigator.pop(context);
+        onPressed: () => {
+          remove(),
+          Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (context) {
+            return const HomePage();
+          })),
         },
       ),
       title: const Text(

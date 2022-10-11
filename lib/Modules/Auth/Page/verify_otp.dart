@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:async';
 
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -6,7 +8,9 @@ import 'package:plawarn/modules/auth/api/mobile_auth/send_verify/send_verify.dar
 import 'package:plawarn/modules/auth/widget/appbar/notitle_bar.dart';
 import 'package:plawarn/modules/auth/widget/from/input_number_form.dart';
 import 'package:plawarn/modules/createprofile/widget/page/namepage/name_page.dart';
+import 'package:plawarn/modules/searchjop/page/search_jop.dart';
 import 'package:plawarn/widget/theme/constants/scema_color.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class VerifyOtp extends StatefulWidget {
   static const String routeName = '/VerifyOtp';
@@ -201,6 +205,9 @@ class _VerifyOtpState extends State<VerifyOtp> {
                   height: 50,
                   child: TextButton(
                     onPressed: () async {
+                      final SharedPreferences saveuid =
+                          await SharedPreferences.getInstance();
+                      final String? Uid = saveuid.getString('Uid');
                       otpkey.currentState!.validate();
                       // 123456 ก่อนนะครับ
                       if (currentText?.length != 6 || currentText != "123456") {
@@ -208,15 +215,21 @@ class _VerifyOtpState extends State<VerifyOtp> {
                         setState(() {
                           // snackBar("OTP ไม่ถูกต้อง");
                         });
-                      } else {
+                      }
+                      if (Uid != null) {
                         await sendverify();
-                        setState(
-                          () {
-                            hasError = false;
-                            // snackBar("เข้าสู่ระบบสำเร็จ");
-                            Navigator.pushNamed(context, NamePage.routeName);
-                          },
-                        );
+                        setState(() {
+                          hasError = false;
+                          Navigator.pushReplacement(context,
+                              MaterialPageRoute(builder: (context) {
+                            return const SearchJop();
+                          }));
+                        });
+                      } else {
+                        Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder: (context) {
+                          return const NamePage();
+                        }));
                       }
                     },
                     child: Center(
