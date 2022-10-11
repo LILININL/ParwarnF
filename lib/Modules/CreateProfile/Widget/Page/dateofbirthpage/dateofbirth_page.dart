@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:plawarn/Components/Model/dtos/CreateProfile/CreateProfile.dart';
-
-import 'package:plawarn/Components/Theme/constants/ScemaTextStyle.dart';
-
-import 'package:plawarn/Components/Theme/constants/ScemaColor.dart';
-import 'package:plawarn/Modules/CreateProfile/Widget/Utils/Appbar/CreateProfile.dart';
-import 'package:plawarn/Modules/CreateProfile/Widget/Utils/Button/ButtonConDateofBirth.dart';
-import 'package:plawarn/Modules/CreateProfile/Widget/Utils/Form/InputDateofbirthGender.dart';
+import 'package:plawarn/modules/createprofile/widget/utils/appbar/create_profile.dart';
+import 'package:plawarn/modules/createprofile/widget/utils/button/button_dateofbirth.dart';
+import 'package:plawarn/modules/createprofile/widget/utils/form/inputdateofbirth_gender.dart';
+import 'package:plawarn/widget/model/dtos/createprofile/create_profile.dart';
+import 'package:plawarn/widget/theme/constants/scema_color.dart';
+import 'package:plawarn/widget/theme/constants/scema_textstyle.dart';
 
 class DateOfBirthPage extends StatefulWidget {
   static const String routeName = '/DateOfBirthPage';

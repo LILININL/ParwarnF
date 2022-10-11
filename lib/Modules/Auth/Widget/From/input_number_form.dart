@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'package:intl_phone_field/intl_phone_field.dart';
-
-import 'package:plawarn/Components/Theme/constants/ScemaColor.dart';
-import 'package:plawarn/Modules/Auth/Widget/Api/Mobile_Auth/Otp/SendOtp.dart';
-
-String? localcode;
-String? phoneNumber;
+import 'package:plawarn/modules/auth/api/mobile_auth/send_otp/send_otp.dart';
+import 'package:plawarn/widget/theme/constants/scema_color.dart';
 
 class ButtonCon extends StatelessWidget {
   const ButtonCon({
@@ -35,8 +30,13 @@ class ButtonCon extends StatelessWidget {
               return null;
             } else {
               await sendotp();
-              Navigator.pushNamed(context, '/VerifyOtp');
+              print(phoneNumber);
+              print(localcode);
             }
+            if (serviceid!.isEmpty) {
+              return null;
+            }
+            Navigator.pushNamed(context, '/VerifyOtp');
           },
           child: Center(
               child: Text(
@@ -57,9 +57,6 @@ class ButtonCon extends StatelessWidget {
 class FromNumber extends StatelessWidget {
   late final GlobalKey<FormState> Numberkey;
 
-  var _localcode;
-
-  var _phoneNumber;
   FromNumber({
     Key? key,
     required this.Numberkey,
@@ -93,10 +90,10 @@ class FromNumber extends StatelessWidget {
             invalidNumberMessage:
                 'หมายเลขโทรศัพท์ไม่ถูกต้อง ไม่ต้องเติม 0 ในหมายเลข',
             onChanged: (phone) {
-              localcode = phone.countryISOCode;
               phoneNumber = phone.completeNumber;
-              print(localcode);
+              localcode = phone.countryISOCode;
               print(phoneNumber);
+              print(localcode);
             },
             validator: (phone) {
               if (phone!.completeNumber.isEmpty) {
@@ -108,3 +105,6 @@ class FromNumber extends StatelessWidget {
     );
   }
 }
+
+String? phoneNumber;
+String? localcode;

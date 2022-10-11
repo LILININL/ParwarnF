@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-
-import 'package:plawarn/Components/Theme/constants/ScemaColor.dart';
-import 'package:plawarn/Modules/Auth/Widget/appbar/NoTitleBar.dart';
-import 'package:plawarn/Modules/Auth/Widget/button/LineLogin.dart';
-import 'package:plawarn/Modules/Auth/Widget/button/Register.dart';
-import 'package:plawarn/Modules/Auth/Widget/from/InputNumberForm.dart';
-
-import '../Widget/button/FacebookLogin.dart';
+import 'package:plawarn/modules/auth/widget/appbar/notitle_bar.dart';
+import 'package:plawarn/modules/auth/widget/button/facebook_login.dart';
+import 'package:plawarn/modules/auth/widget/button/line_login.dart';
+import 'package:plawarn/modules/auth/widget/button/register_button.dart';
+import 'package:plawarn/modules/auth/widget/from/input_number_form.dart';
+import 'package:plawarn/widget/theme/constants/scema_color.dart';
 
 class LoginMobile extends StatefulWidget {
   static const String routeName = '/LoginMobile';

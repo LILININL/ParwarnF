@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:getwidget/getwidget.dart';
-import 'package:plawarn/Components/Theme/constants/ScemaTextStyle.dart';
-import 'package:plawarn/Components/Theme/constants/ScemaColor.dart';
-import 'package:plawarn/Modules/skills/Page/AddSkill/ColunmAddSkill.dart';
-import 'package:plawarn/Modules/skills/Widget/Appbar/SkillAddBar.dart';
+import 'package:plawarn/modules/skills/page/addskill/colunm_skill.dart';
+import 'package:plawarn/modules/skills/widget/appbar/addskill_bar.dart';
+import 'package:plawarn/widget/theme/constants/scema_color.dart';
+import 'package:plawarn/widget/theme/constants/scema_textstyle.dart';
 
 class AddSkills extends StatefulWidget {
   const AddSkills({super.key});

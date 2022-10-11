@@ -1,14 +1,12 @@
 import 'dart:async';
+
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:flutter/material.dart';
-
-import 'package:plawarn/Components/Theme/constants/ScemaColor.dart';
-
-import 'package:plawarn/Modules/auth/widget/api/mobile_auth/verify/Send-verify.dart';
-import 'package:plawarn/Modules/auth/widget/appbar/NoTitleBar.dart';
-import 'package:plawarn/Modules/auth/widget/from/InputNumberForm.dart';
-
-import 'package:plawarn/Modules/CreateProfile/Widget/Page/NamePage/NamePage.dart';
+import 'package:plawarn/modules/auth/api/mobile_auth/send_verify/send_verify.dart';
+import 'package:plawarn/modules/auth/widget/appbar/notitle_bar.dart';
+import 'package:plawarn/modules/auth/widget/from/input_number_form.dart';
+import 'package:plawarn/modules/createprofile/widget/page/namepage/name_page.dart';
+import 'package:plawarn/widget/theme/constants/scema_color.dart';
 
 class VerifyOtp extends StatefulWidget {
   static const String routeName = '/VerifyOtp';

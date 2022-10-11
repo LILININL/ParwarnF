@@ -1,8 +1,7 @@
 import 'package:http/http.dart' as http;
-import 'package:plawarn/Modules/Auth/Widget/Api/Mobile_Auth/Verify/Send-verify.dart';
-
-import 'package:plawarn/Modules/CreateProfile/Widget/Utils/Button/ButtonConDateofBirth.dart';
-import 'package:plawarn/Modules/CreateProfile/Widget/Utils/Button/ButtonCreateName.dart';
+import 'package:plawarn/modules/auth/api/mobile_auth/send_verify/send_verify.dart';
+import 'package:plawarn/modules/createprofile/widget/utils/button/button_createname.dart';
+import 'package:plawarn/modules/createprofile/widget/utils/button/button_dateofbirth.dart';
 
 void sendProfile() async {
   var headers = {

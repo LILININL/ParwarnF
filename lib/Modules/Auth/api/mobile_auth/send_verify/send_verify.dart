@@ -1,12 +1,12 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:plawarn/Components/Model/dtos/Token/Token-data.dart';
-import 'package:plawarn/Modules/Auth/Widget/from/InputNumberForm.dart';
+import 'package:plawarn/modules/auth/api/mobile_auth/send_otp/send_otp.dart';
+import 'package:plawarn/modules/auth/widget/from/input_number_form.dart';
+import 'package:plawarn/widget/model/dtos/token/token_data.dart';
 
-import '../Otp/SendOtp.dart';
+String? token;
+String? type;
 
-var token;
-var type;
 Future<dynamic> sendverify() async {
   const url = 'https://api2.plawarn.com/auth/verify-otp';
   try {

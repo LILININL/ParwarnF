@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:plawarn/Modules/auth/page/LoginMobile.dart';
-import 'package:plawarn/Modules/auth/page/VerifyOtp.dart';
-import 'package:plawarn/Modules/CreateProfile/Widget/Page/AvatarPage/AvatarForm.dart';
-import 'package:plawarn/Modules/CreateProfile/Widget/Page/DateofbridPage/DateOfBirthPage.dart';
-import 'package:plawarn/Modules/CreateProfile/Widget/Page/NamePage/NamePage.dart';
-import 'package:plawarn/Modules/searchJop/page/SearchJop.dart';
-import 'package:plawarn/Modules/skills/page/SelectSkillsJop/AddSkillsPage.dart';
-import 'package:plawarn/page/404Page.dart';
-import 'package:plawarn/page/HomePage.dart';
+import 'package:plawarn/modules/auth/page/login_mobile.dart';
+import 'package:plawarn/modules/auth/page/verify_otp.dart';
+import 'package:plawarn/modules/createprofile/widget/page/avatarpage/avatar_form.dart';
+
+import 'package:plawarn/modules/createprofile/widget/page/dateofbirthpage/dateofbirth_page.dart';
+import 'package:plawarn/modules/createprofile/widget/page/namepage/name_page.dart';
+import 'package:plawarn/modules/searchjop/page/search_jop.dart';
+import 'package:plawarn/modules/skills/page/selectskillsjop/add_skills.dart';
+import 'package:plawarn/page/404_page.dart';
+import 'package:plawarn/page/home_page.dart';
 import 'package:flutter/services.dart';
 // import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 // import 'package:flutter_localizations/flutter_localizations.dart';

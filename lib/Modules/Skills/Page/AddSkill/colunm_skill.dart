@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
-import 'package:plawarn/Components/Theme/constants/ScemaTextStyle.dart';
-import 'package:plawarn/Components/Theme/constants/ScemaColor.dart';
+import 'package:plawarn/widget/theme/constants/scema_color.dart';
+import 'package:plawarn/widget/theme/constants/scema_textstyle.dart';
 
 class ColounmAddSkills extends StatelessWidget {
   const ColounmAddSkills({

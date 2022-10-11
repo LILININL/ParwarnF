@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:plawarn/Components/Model/dtos/CreateProfile/CreateProfile.dart';
-import 'package:plawarn/Components/Theme/constants/ScemaTextStyle.dart';
-import 'package:plawarn/Modules/CreateProfile/Widget/Utils/Appbar/CreateProfile.dart';
-import 'package:plawarn/Modules/CreateProfile/Widget/Utils/Button/ButtonCreateName.dart';
-import 'package:plawarn/Modules/CreateProfile/Widget/Utils/Form/InputCreateNameForm.dart';
+import 'package:plawarn/modules/createprofile/widget/utils/appbar/create_profile.dart';
+import 'package:plawarn/modules/createprofile/widget/utils/button/button_createname.dart';
+import 'package:plawarn/modules/createprofile/widget/utils/form/inputcreatename_form.dart';
+import 'package:plawarn/widget/model/dtos/createprofile/create_profile.dart';
+
+import 'package:plawarn/widget/theme/constants/scema_textstyle.dart';
 
 class NamePage extends StatefulWidget {
   static const String routeName = '/NamePage';

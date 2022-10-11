@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:plawarn/Components/Theme/constants/ScemaTextStyle.dart';
+import 'package:plawarn/modules/createprofile/widget/utils/appbar/create_profile.dart';
 
-import 'package:plawarn/Components/Theme/constants/ScemaColor.dart';
-import 'package:plawarn/Modules/CreateProfile/Widget/Utils/Appbar/CreateProfile.dart';
+import 'package:plawarn/widget/theme/constants/scema_color.dart';
+import 'package:plawarn/widget/theme/constants/scema_textstyle.dart';
 
 class AvatarPage extends StatefulWidget {
   static const String routeName = '/AvatarPage';

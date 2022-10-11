@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
-import 'package:plawarn/Components/Theme/constants/ScemaTextStyle.dart';
-import 'package:plawarn/Components/Theme/constants/ScemaColor.dart';
+import 'package:plawarn/widget/theme/constants/scema_textstyle.dart';
 
-class CardSearch2 extends StatelessWidget {
-  const CardSearch2({
+class CardSearch1 extends StatelessWidget {
+  const CardSearch1({
     Key? key,
   }) : super(key: key);
 
@@ -13,12 +12,11 @@ class CardSearch2 extends StatelessWidget {
     return Expanded(
       flex: 1,
       child: GFCard(
-        borderRadius: BorderRadius.circular(10),
         image: Image.asset(
             height: MediaQuery.of(context).size.height * 0.13,
             width: MediaQuery.of(context).size.width,
             fit: BoxFit.cover,
-            'assets/images/profile/avatar/post-job-vector.png'),
+            'assets/images/profile/avatar/looking-for-jobs-vector.png'),
         showImage: true,
         titlePosition: GFPosition.end,
         title: const GFListTile(
@@ -38,11 +36,10 @@ class CardSearch2 extends StatelessWidget {
         buttonBar: GFButtonBar(
           children: <Widget>[
             GFButton(
-              color: yell,
               size: 49,
               fullWidthButton: true,
               onPressed: () {
-                // Navigator.pushNamed(context, '/SearchJop');
+                Navigator.pushNamed(context, '/AddSkills');
               },
               text: 'เริ่มเลย',
               textStyle: buttonContinua,

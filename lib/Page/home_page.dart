@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
-import 'package:plawarn/Components/Model/dtos/ListData/Language.dart';
-import 'package:plawarn/Components/Theme/constants/ScemaColor.dart';
-import 'package:plawarn/Modules/auth/page/LoginMobile.dart';
+import 'package:plawarn/modules/auth/page/login_mobile.dart';
+import 'package:plawarn/widget/model/dtos/ListData/Language.dart';
+import 'package:plawarn/widget/theme/constants/scema_color.dart';
 
 class HomePage extends StatefulWidget {
   static const String routeName = '/home';

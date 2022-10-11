@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:plawarn/modules/searchjop/widget/appbar/search_jobbar.dart';
+import 'package:plawarn/modules/searchjop/widget/card/card_search1.dart';
+import 'package:plawarn/modules/searchjop/widget/card/card_search2.dart';
 
-import 'package:plawarn/Components/Theme/constants/ScemaColor.dart';
-import 'package:plawarn/Modules/SearchJop/widget/appbar/SearchJobbar.dart';
-import 'package:plawarn/Modules/SearchJop/widget/card/CardSearch1.dart';
-import 'package:plawarn/Modules/SearchJop/widget/card/CardSearch2.dart';
+import 'package:plawarn/widget/theme/constants/scema_color.dart';
 
 class SearchJop extends StatefulWidget {
   const SearchJop({super.key});

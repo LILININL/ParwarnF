@@ -50,7 +50,7 @@ class _NotFoundPageState extends State<NotFoundPage> {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 30,
-                    color: const Color(0xff2f3640),
+                    color: Color(0xff2f3640),
                   ),
                 ),
               ],

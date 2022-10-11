@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:plawarn/Components/Theme/constants/ScemaTextStyle.dart';
+import 'package:plawarn/widget/theme/constants/scema_textstyle.dart';
 
-class Profilebar extends StatelessWidget implements PreferredSizeWidget {
-  const Profilebar({
+class SkillsAddBar extends StatelessWidget implements PreferredSizeWidget {
+  const SkillsAddBar({
     Key? key,
   }) : super(key: key);
 
@@ -20,7 +20,7 @@ class Profilebar extends StatelessWidget implements PreferredSizeWidget {
           Navigator.pop(context);
         },
       ),
-      title: const Text('สร้างโปรไฟล์', style: appbartitle),
+      title: const Text('ทักษะ', style: appbartitle),
     );
   }
 

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:plawarn/Components/Model/dtos/CreateProfile/CreateProfile.dart';
-import 'package:plawarn/Components/Theme/constants/ScemaTextStyle.dart';
-
-import 'package:plawarn/Components/Theme/constants/ScemaColor.dart';
+import 'package:plawarn/widget/model/dtos/createprofile/create_profile.dart';
+import 'package:plawarn/widget/theme/constants/scema_color.dart';
+import 'package:plawarn/widget/theme/constants/scema_textstyle.dart';
 
 class InputCreateNameFrom extends StatelessWidget {
   const InputCreateNameFrom({

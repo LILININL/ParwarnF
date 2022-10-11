@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:plawarn/Components/Theme/constants/ScemaColor.dart';
+import 'package:plawarn/widget/theme/constants/scema_color.dart';
 
 class SearcjJobbar extends StatelessWidget implements PreferredSizeWidget {
   const SearcjJobbar({
