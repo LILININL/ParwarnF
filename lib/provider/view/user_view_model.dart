@@ -39,7 +39,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 //     mobileNumber: '',
 //   );
 // }
-
+// ทดสอบ ลองย้ายมาไว้ ในไฟล์นี้ดู ว่าจะได้ไม่ต้องเรียกใช้ไฟล์อื่น ยังไม่เสร็จ!
 class Tokenview with ChangeNotifier {
   Future<bool> saveUser(GetTokendata token) async {
     final SharedPreferences sp = await SharedPreferences.getInstance();
