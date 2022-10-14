@@ -1,14 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:plawarn/modules/skills/page/selectskills/widget/api/skill_data.dart';
 
 import 'package:plawarn/widget/model/dtos/skill/leader_skill.dart';
 import 'package:plawarn/widget/theme/constants/scema_textstyle.dart';
 
-class ButtonSheet extends StatelessWidget {
+class ButtonSheet extends StatefulWidget {
   @required
   final Skilldata skilldata;
   const ButtonSheet(this.skilldata, {super.key});
 
   @override
+  State<ButtonSheet> createState() => _ButtonSheetState();
+}
+
+class _ButtonSheetState extends State<ButtonSheet> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
@@ -33,10 +43,10 @@ class ButtonSheet extends StatelessWidget {
                   width: 50,
                   child: ClipRRect(
                     child: Hero(
-                      tag: 'imgae${skilldata.id}',
+                      tag: 'imgae${widget.skilldata.id}',
                       child: FadeInImage.assetNetwork(
                         placeholder: 'assets/images/loading.gif',
-                        image: skilldata.icon,
+                        image: widget.skilldata.icon,
                       ),
                     ),
                   ),
@@ -44,7 +54,7 @@ class ButtonSheet extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(5),
                   child: Text(
-                    skilldata.name,
+                    widget.skilldata.name,
                     style: textStyle24bold,
                   ),
                 ),
@@ -65,7 +75,21 @@ class ButtonSheet extends StatelessWidget {
               padding: const EdgeInsets.all(10),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[Text("data")],
+                children: <Widget>[
+                  //checkbox flutter
+                  Text("data"),
+                  ListView.builder(
+                      itemBuilder: (BuildContext context, int index) {
+                    return GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        child: Row(
+                          children: [],
+                        ),
+                      ),
+                    );
+                  })
+                ],
               ),
             ),
           ),

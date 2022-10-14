@@ -44,7 +44,10 @@ class _SelectskillState extends State<Selectskill> {
               print('id=${skilldata.id}');
               print('name=${skilldata.name}');
               print('sequence=${skilldata.sequence}');
-              idksill = skilldata.id;
+              setState(() {
+                idksill = skilldata.id;
+              });
+
               showModalBottomSheet(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0),
