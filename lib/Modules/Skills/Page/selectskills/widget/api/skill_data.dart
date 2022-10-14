@@ -8,7 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../select_skills.dart';
 
-class NetRequest {
+class SkillRequest {
   static const String url = 'https://api2.plawarn.com/skills';
   static List<Skilldata> pasrseSkill(String res) {
     final result = json.decode(res)['data'];
@@ -34,24 +34,50 @@ class NetRequest {
   }
 }
 
-// Future childskill() async {
-//   SharedPreferences saveToken = await SharedPreferences.getInstance();
-//   final token = saveToken.getString('token');
-//   SharedPreferences saveType = await SharedPreferences.getInstance();
-//   final type = saveType.getString('type');
-//   var headers = {
-//     'content-type': 'application/json; charset=utf-8',
-//     'accept': '*/*\'',
-//     'Authorization': '$type $token'
-//   };
-//   var res = http.Request(
-//       'GET',
-//       Uri.parse(
-//           'https://api2.plawarn.com/skills/childrens/627f236a3d8c0f100acaa97b'));
+// class SkillchildrenRequest {
+// static String url = 'https://api2.plawarn.com/skills/$idksill';
+//   static List<Children> pasrsechildrenSkill(String res) {
+//     final children = json.decode(res)['data'];
+//     return children.map<Children>((json) => Children.fromJson(json)).toList();
+//   }
 
-//   var data = Children.fromJson(json.decode(res.body));
+//   static Future<List<Children>> fetchchildrenSkill() async {
+// SharedPreferences saveToken = await SharedPreferences.getInstance();
+// final token = saveToken.getString('token');
+// SharedPreferences saveType = await SharedPreferences.getInstance();
+// final type = saveType.getString('type');
+// var headers = {
+//   'content-type': 'application/json; charset=utf-8',
+//   'accept': '*/*\'',
+//   'Authorization': '$type $token'
+// };
+//     final res = await http.get(Uri.parse(url), headers: headers);
+//     if (res.statusCode == 200) {
+//       return compute(pasrsechildrenSkill, res.body);
+//     } else {
+//       throw Exception('Failed to load data');
+//     }
+//   }
+// }
 
-//   if (res.body == 200) {  switch thai pls 
-//     print(res.body);
-//   } else {}
-// } 
+Future<dynamic> test() async {
+  String url = 'https://api2.plawarn.com/skills/$idksill';
+  SharedPreferences saveToken = await SharedPreferences.getInstance();
+  final token = saveToken.getString('token');
+  SharedPreferences saveType = await SharedPreferences.getInstance();
+  final type = saveType.getString('type');
+  var headers = {
+    'content-type': 'application/json; charset=utf-8',
+    'accept': '*/*\'',
+    'Authorization': '$type $token'
+  };
+  try {
+    final res = await http.get(Uri.parse(url), headers: headers);
+
+    var data = Children.fromJson(json.decode(res.body));
+
+    print(res.body);
+  } catch (er) {
+    print(er);
+  }
+}

@@ -17,6 +17,7 @@ class _ButtonSheetState extends State<ButtonSheet> {
   @override
   void initState() {
     super.initState();
+    test();
   }
 
   Widget build(BuildContext context) {
