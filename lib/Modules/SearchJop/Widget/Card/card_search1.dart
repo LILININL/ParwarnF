@@ -39,7 +39,7 @@ class CardSearch1 extends StatelessWidget {
               size: 49,
               fullWidthButton: true,
               onPressed: () {
-                Navigator.pushNamed(context, '/AddSkills');
+                Navigator.pushNamed(context, '/Addskill');
               },
               text: 'เริ่มเลย',
               textStyle: buttonContinua,

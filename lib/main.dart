@@ -6,7 +6,8 @@ import 'package:plawarn/modules/createprofile/widget/page/avatarpage/avatar_form
 import 'package:plawarn/modules/createprofile/widget/page/dateofbirthpage/dateofbirth_page.dart';
 import 'package:plawarn/modules/createprofile/widget/page/namepage/name_page.dart';
 import 'package:plawarn/modules/searchjop/page/search_jop.dart';
-import 'package:plawarn/modules/skills/page/selectskillsjop/add_skills.dart';
+import 'package:plawarn/modules/skills/page/addskill/skill_add.dart';
+import 'package:plawarn/modules/skills/page/selectskills/select_skills.dart';
 import 'package:plawarn/page/404_page.dart';
 import 'package:plawarn/page/home_page.dart';
 import 'package:flutter/services.dart';
@@ -59,7 +60,8 @@ class MyApp extends StatelessWidget {
           DateOfBirthPage.routeName: (context) => const DateOfBirthPage(),
           AvatarPage.routeName: (context) => const AvatarPage(),
           SearchJop.routeName: (context) => const SearchJop(),
-          AddSkills.routeName: (context) => const AddSkills(),
+          Addskill.routeName: (context) => const Addskill(),
+          Selectskill.routeName: (context) => Selectskill(),
         },
       ),
     );

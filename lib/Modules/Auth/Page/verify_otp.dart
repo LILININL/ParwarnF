@@ -9,6 +9,8 @@ import 'package:plawarn/modules/auth/widget/appbar/notitle_bar.dart';
 import 'package:plawarn/modules/auth/widget/from/input_number_form.dart';
 import 'package:plawarn/modules/createprofile/widget/page/namepage/name_page.dart';
 import 'package:plawarn/modules/searchjop/page/search_jop.dart';
+import 'package:plawarn/provider/view/api/check_user.dart';
+import 'package:plawarn/provider/view/user_view_model.dart';
 import 'package:plawarn/widget/theme/constants/scema_color.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -218,6 +220,8 @@ class _VerifyOtpState extends State<VerifyOtp> {
                       }
                       if (Uid != null) {
                         await sendverify();
+                        await getProfile();
+                        await checkUser();
                         setState(() {
                           hasError = false;
                           Navigator.pushReplacement(context,
@@ -225,7 +229,11 @@ class _VerifyOtpState extends State<VerifyOtp> {
                             return const SearchJop();
                           }));
                         });
-                      } else {
+                      }
+                      if (Uid == null) {
+                        await sendverify();
+                        await getProfile();
+                        await checkUser();
                         Navigator.pushReplacement(context,
                             MaterialPageRoute(builder: (context) {
                           return const NamePage();

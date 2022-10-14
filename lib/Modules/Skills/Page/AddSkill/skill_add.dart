@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
-import 'package:plawarn/modules/skills/page/addskill/colunm_skill.dart';
+import 'package:plawarn/modules/skills/page/addskill/widget/colunm_skill.dart';
 import 'package:plawarn/modules/skills/widget/appbar/addskill_bar.dart';
 import 'package:plawarn/widget/theme/constants/scema_color.dart';
 import 'package:plawarn/widget/theme/constants/scema_textstyle.dart';
 
-class AddSkills extends StatefulWidget {
-  const AddSkills({super.key});
-  static const String routeName = '/AddSkills';
+class Addskill extends StatefulWidget {
+  const Addskill({super.key});
+
+  static const String routeName = '/Addskill';
 
   @override
-  State<AddSkills> createState() => _AddSkillState();
+  State<Addskill> createState() => _Addskilltate();
 }
 
-class _AddSkillState extends State<AddSkills> {
+class _Addskilltate extends State<Addskill> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,7 +52,7 @@ class _AddSkillState extends State<AddSkills> {
                 ),
               ),
             ),
-            const ColounmAddSkills()
+            const ColounmAddSkill()
           ],
         ),
       ),

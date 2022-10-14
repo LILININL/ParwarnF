@@ -10,45 +10,51 @@ const textStyle16 = TextStyle(
 const textStyle18 = TextStyle(
   fontFamily: 'Noto',
   fontSize: 18,
-  color: textblack54,
+  color: textblack,
 );
 const textStyle20 = TextStyle(
   fontFamily: 'Noto',
   fontSize: 20,
-  color: textblack54,
+  color: textblack,
 );
 const textStyle24 = TextStyle(
   fontFamily: 'Noto',
   fontSize: 24,
-  color: textblack54,
+  color: textblack,
 );
 
 //bold style
 const textStyle16bold = TextStyle(
     fontFamily: 'Noto',
     fontSize: 16,
-    color: textblack54,
+    color: textblack,
     fontWeight: FontWeight.bold);
 const textStyle18bold = TextStyle(
     fontFamily: 'Noto',
     fontSize: 18,
-    color: textblack54,
+    color: textblack,
     fontWeight: FontWeight.bold);
 const textStyle20bold = TextStyle(
     fontFamily: 'Noto',
     fontSize: 20,
-    color: textblack54,
+    color: textblack,
     fontWeight: FontWeight.bold);
 const textStyle24bold = TextStyle(
     fontFamily: 'Noto',
     fontSize: 24,
-    color: textblack54,
+    color: textblack,
     fontWeight: FontWeight.bold);
 
 //titile and subtitle Text
 const titletext24 = TextStyle(
     fontFamily: 'Noto',
     fontSize: 24,
+    color: textblack,
+    fontWeight: FontWeight.bold);
+
+const titletext18 = TextStyle(
+    fontFamily: 'Noto',
+    fontSize: 18,
     color: textblack,
     fontWeight: FontWeight.bold);
 

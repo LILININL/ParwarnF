@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:plawarn/modules/createprofile/widget/utils/appbar/create_profile.dart';
 import 'package:plawarn/modules/createprofile/widget/utils/button/button_createname.dart';
 import 'package:plawarn/modules/createprofile/widget/utils/form/inputcreatename_form.dart';
+import 'package:plawarn/provider/view/api/check_user.dart';
 import 'package:plawarn/provider/view/user_view_model.dart';
 import 'package:plawarn/widget/model/dtos/createprofile/create_profile.dart';
 
@@ -20,6 +21,7 @@ class _NamePageState extends State<NamePage> {
   void initState() {
     super.initState();
     checkUser();
+    getProfile();
   }
 
   UserName _Name = UserName();

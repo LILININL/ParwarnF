@@ -33,7 +33,6 @@ Future<dynamic> sendProfile() async {
     Uid = data.id;
     SharedPreferences saveuid = await SharedPreferences.getInstance();
     await saveuid.setString('Uid', Uid!);
-
     print(Uid);
     print(res.body);
   } catch (er) {

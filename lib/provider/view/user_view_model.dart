@@ -62,14 +62,15 @@ Future<bool> remove() async {
 }
 
 Future<Object> checkUser() async {
+  await getProfile();
   final SharedPreferences saveuid = await SharedPreferences.getInstance();
   final String? Uid = saveuid.getString('Uid');
-  await getProfile();
-  if (Uid == null && Uid!.isEmpty) {
+  print(Uid);
+  if (Uid == null) {
     print('ไปสร้างโปรไฟล์ใหม่');
     return true;
   }
-  if (Uid.isNotEmpty) {
+  if (Uid != null) {
     print('รับค่าโปรไฟล์ไปต่อหน้าสกิล');
     return true;
   } else {

@@ -14,3 +14,5 @@ const body = Color.fromRGBO(57, 63, 66, 0.8);
 const textwhite = Colors.white;
 const colorsuptitle = Color.fromRGBO(0, 0, 0, 0.8);
 const colorB = Color(0xFF66A4FB);
+const colorc = Color(0xFFD7E2F1);
+const colord = Color(0xFFF7FAFF);

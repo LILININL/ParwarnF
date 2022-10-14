@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:plawarn/modules/skills/page/selectskills/select_skills.dart';
 import 'package:plawarn/widget/theme/constants/scema_color.dart';
 import 'package:plawarn/widget/theme/constants/scema_textstyle.dart';
 
-class ColounmAddSkills extends StatelessWidget {
-  const ColounmAddSkills({
+class ColounmAddSkill extends StatelessWidget {
+  const ColounmAddSkill({
     Key? key,
   }) : super(key: key);
 
@@ -32,7 +33,9 @@ class ColounmAddSkills extends StatelessWidget {
                         'ทักษะที่ 1',
                         style: SkillsTextStyle18,
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/Selectskill');
+                      },
                     ),
                   ),
                 ),

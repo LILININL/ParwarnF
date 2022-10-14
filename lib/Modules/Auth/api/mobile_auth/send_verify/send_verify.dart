@@ -21,8 +21,9 @@ Future<dynamic> sendverify() async {
     type = data.type;
     SharedPreferences saveToken = await SharedPreferences.getInstance();
     await saveToken.setString('token', token!);
-    await saveToken.setString('type', type!);
-    print(serviceid);
+    SharedPreferences saveType = await SharedPreferences.getInstance();
+    await saveType.setString('type', type!);
+    print(token);
     print(res.body);
   } catch (er) {
     print(er);
