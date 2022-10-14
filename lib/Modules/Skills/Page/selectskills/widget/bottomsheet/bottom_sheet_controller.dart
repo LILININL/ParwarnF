@@ -6,14 +6,11 @@ class BottomSheetController extends GetxController {
   set bottomSheet(bool value) => _bottomSheet.value = value;
 
   var isCheckedAll = false.obs;
-  var unselectIcon =
-      'assets/images/check_car_data/check_car_data_unselect_icon.svg'.obs;
-  var selectIcon =
-      'assets/images/check_car_data/check_car_data_select_icon.svg'.obs;
+  var unselectIcon = 'assets/images/iconsvg/chboxfalse.svg'.obs;
+  var selectIcon = 'assets/images/iconsvg/checkboxtrue.svg'.obs;
   var iconStatus = ['N', 'N', 'N', 'N', 'N', 'N'].obs;
   var iconList = [
-    'assets/images/check_car_data/check_car_data_unselect_icon.svg',
-    'assets/images/check_car_data/check_car_data_unselect_icon.svg',
-    'assets/images/check_car_data/check_car_data_unselect_icon.svg',
+    'assets/images/iconsvg/chboxfalse.svg',
+    'assets/images/iconsvg/chboxfalse.svg',
   ];
 }

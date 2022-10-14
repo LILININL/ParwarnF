@@ -85,6 +85,8 @@ flutter:
     - assets/images/profile/avatar/empty-avatar.png
     - assets/images/profile/avatar/looking-for-jobs-vector.png
     - assets/images/profile/avatar/post-job-vector.png
+    - assets/images/iconsvg/checkboxtrue.svg
+    - assets/images/iconsvg/chboxfalse.svg
     
 
   # An image asset can refer to one or more resolution-specific "variants", see
