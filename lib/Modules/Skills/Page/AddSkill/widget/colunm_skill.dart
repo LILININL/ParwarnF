@@ -56,7 +56,9 @@ class ColounmAddSkill extends StatelessWidget {
                         'ทักษะที่ 2',
                         style: SkillsTextStyle18,
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/ListChild');
+                      },
                     ),
                   ),
                 ),

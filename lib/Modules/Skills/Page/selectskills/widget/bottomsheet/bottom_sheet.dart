@@ -1,23 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:getwidget/getwidget.dart';
 import 'package:plawarn/modules/skills/page/selectskills/widget/api/skill_data.dart';
-
+import 'package:plawarn/modules/skills/page/selectskills/widget/bottomsheet/data_controller.dart';
+import 'package:plawarn/widget/model/dtos/skill/childrens_skill.dart';
 import 'package:plawarn/widget/model/dtos/skill/leader_skill.dart';
 import 'package:plawarn/widget/theme/constants/scema_textstyle.dart';
 
 class ButtonSheet extends StatefulWidget {
   @required
   final Skilldata skilldata;
-  const ButtonSheet(this.skilldata, {super.key});
+
+  const ButtonSheet(
+    this.skilldata,
+    String name, {
+    super.key,
+  });
 
   @override
   State<ButtonSheet> createState() => _ButtonSheetState();
 }
 
 class _ButtonSheetState extends State<ButtonSheet> {
+  Future<List<ChildrensSkill>> childrensSkill = getSkill();
+
   @override
   void initState() {
     super.initState();
-    test();
+    getSkill();
   }
 
   Widget build(BuildContext context) {
@@ -73,25 +82,33 @@ class _ButtonSheetState extends State<ButtonSheet> {
             ),
             alignment: Alignment.topLeft,
             child: Padding(
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.fromLTRB(10, 5, 15, 0),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  //checkbox flutter
-                  Text("data"),
-                  // ListView.builder(
-                  //     itemBuilder: (BuildContext context, int index) {
-                  //   return GestureDetector(
-                  //     onTap: () {},
-                  //     child: Container(
-                  //       child: Row(
-                  //         children: [],
-                  //       ),
-                  //     ),
-                  //   );
-                  // })
-                ],
-              ),
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    FutureBuilder(
+                      future: childrensSkill,
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          return ListView.builder(
+                            shrinkWrap: true,
+                            itemCount: snapshot.data!.length,
+                            itemBuilder: (context, index) {
+                              return ListTile(
+                                title: Text(snapshot.data![index].name!),
+                                onTap: () {
+                                  Navigator.pop(context);
+                                },
+                              );
+                            },
+                          );
+                        } else if (snapshot.hasError) {
+                          return Text("${snapshot.error}");
+                        }
+                        return const CircularProgressIndicator();
+                      },
+                    )
+                  ]),
             ),
           ),
         ],

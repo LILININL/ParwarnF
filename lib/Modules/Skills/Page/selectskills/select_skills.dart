@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/state_manager.dart';
 
 import 'package:plawarn/modules/skills/page/selectskills/widget/api/skill_data.dart';
 import 'package:plawarn/modules/skills/page/selectskills/widget/appbar/searchskillbar.dart';
@@ -6,6 +7,7 @@ import 'package:plawarn/modules/skills/page/selectskills/widget/bottomsheet/bott
 import 'package:plawarn/modules/skills/page/selectskills/widget/cell/grid_cell.dart';
 import 'package:plawarn/provider/view/api/check_user.dart';
 import 'package:plawarn/provider/view/user_view_model.dart';
+import 'package:plawarn/widget/model/dtos/skill/childrens_skill.dart';
 import 'package:plawarn/widget/model/dtos/skill/leader_skill.dart';
 import 'package:plawarn/widget/theme/constants/scema_color.dart';
 import 'package:plawarn/widget/theme/constants/scema_textstyle.dart';
@@ -17,7 +19,7 @@ class Selectskill extends StatefulWidget {
   State<Selectskill> createState() => _SelectskillState();
 }
 
-String? idksill;
+String? idkskill;
 
 class _SelectskillState extends State<Selectskill> {
   @override
@@ -45,13 +47,17 @@ class _SelectskillState extends State<Selectskill> {
               print('name=${skilldata.name}');
               print('sequence=${skilldata.sequence}');
               setState(() {});
-              idksill = skilldata.id;
+              idkskill = skilldata.id;
+
               showModalBottomSheet(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   context: context,
-                  builder: ((builder) => ButtonSheet(skilldata)));
+                  builder: ((builder) => ButtonSheet(
+                        skilldata,
+                        skilldata.id,
+                      )));
             },
           );
         }).toList(),

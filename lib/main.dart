@@ -8,6 +8,7 @@ import 'package:plawarn/modules/createprofile/widget/page/namepage/name_page.dar
 import 'package:plawarn/modules/searchjop/page/search_jop.dart';
 import 'package:plawarn/modules/skills/page/addskill/skill_add.dart';
 import 'package:plawarn/modules/skills/page/selectskills/select_skills.dart';
+import 'package:plawarn/modules/skills/page/selectskills/widget/bottomsheet/data_controller.dart';
 import 'package:plawarn/page/404_page.dart';
 import 'package:plawarn/page/home_page.dart';
 import 'package:flutter/services.dart';

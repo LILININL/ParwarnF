@@ -34,34 +34,8 @@ class SkillRequest {
   }
 }
 
-// class SkillchildrenRequest {
-// static String url = 'https://api2.plawarn.com/skills/$idksill';
-//   static List<Children> pasrsechildrenSkill(String res) {
-//     final children = json.decode(res)['data'];
-//     return children.map<Children>((json) => Children.fromJson(json)).toList();
-//   }
-
-//   static Future<List<Children>> fetchchildrenSkill() async {
-// SharedPreferences saveToken = await SharedPreferences.getInstance();
-// final token = saveToken.getString('token');
-// SharedPreferences saveType = await SharedPreferences.getInstance();
-// final type = saveType.getString('type');
-// var headers = {
-//   'content-type': 'application/json; charset=utf-8',
-//   'accept': '*/*\'',
-//   'Authorization': '$type $token'
-// };
-//     final res = await http.get(Uri.parse(url), headers: headers);
-//     if (res.statusCode == 200) {
-//       return compute(pasrsechildrenSkill, res.body);
-//     } else {
-//       throw Exception('Failed to load data');
-//     }
-//   }
-// }
-
-Future<dynamic> test() async {
-  String url = 'https://api2.plawarn.com/skills/$idksill';
+Future<List<ChildrensSkill>> getSkill() async {
+  String url = 'https://api2.plawarn.com/skills/$idkskill';
   SharedPreferences saveToken = await SharedPreferences.getInstance();
   final token = saveToken.getString('token');
   SharedPreferences saveType = await SharedPreferences.getInstance();
@@ -71,13 +45,10 @@ Future<dynamic> test() async {
     'accept': '*/*\'',
     'Authorization': '$type $token'
   };
-  try {
-    final res = await http.get(Uri.parse(url), headers: headers);
 
-    var data = Children.fromJson(json.decode(res.body));
-
-    print(res.body);
-  } catch (er) {
-    print(er);
-  }
+  final res = await http.get(Uri.parse(url), headers: headers);
+  final result = json.decode(res.body)['childrens'];
+  return result
+      .map<ChildrensSkill>((json) => ChildrensSkill.fromJson(json))
+      .toList();
 }
