@@ -23,7 +23,7 @@ class ButtonSheet extends StatefulWidget {
 
 class _ButtonSheetState extends State<ButtonSheet> {
   Future<List<ChildrensSkill>> childrensSkill = getSkill();
-  List<String> userChecked = [];
+  List<String> skillsChecked = [];
   @override
   void initState() {
     super.initState();
@@ -103,7 +103,7 @@ class _ButtonSheetState extends State<ButtonSheet> {
                               size: 25,
                               padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                               margin: const EdgeInsets.all(0),
-                              value: userChecked
+                              value: skillsChecked
                                   .contains(snapshot.data![index].id!),
                               onChanged: (val) {
                                 _onSelected(val, snapshot.data![index].id!);
@@ -126,7 +126,7 @@ class _ButtonSheetState extends State<ButtonSheet> {
               child: GFButton(
                 onPressed: () {
                   setState(() {
-                    print(childskillid);
+                    print(childskillid.length);
                   });
 
                   // Navigator.pop(context);
@@ -144,20 +144,39 @@ class _ButtonSheetState extends State<ButtonSheet> {
     );
   }
 
-  String? childskillid;
+  late List<skilladd> childskillid;
 
-  Future<void> _onSelected(bool selected, String id) async {
+  void _onSelected(bool selected, String id) {
     if (selected == true) {
       setState(() {
-        userChecked.add(id);
-        childskillid = id;
-        print('Add child${id}');
+        skillsChecked.add(id);
+        childskillid = skillsChecked.map((e) => skilladd(e)).toList();
       });
     } else {
       setState(() {
-        userChecked.remove(id);
-        print('remove child${id}');
+        skillsChecked.remove(id);
+        childskillid = skillsChecked.map((e) => skilladd(e)).toList();
       });
     }
   }
+
+  // Future<void> _onSelected(bool selected, String id) async {
+  //   if (selected == true) {
+  //     setState(() {
+  //       skillsChecked.add(id);
+  //       childskillid = id as List;
+  //       print('Add child${id}');
+  //     });
+  //   } else {
+  //     setState(() {
+  //       skillsChecked.remove(id);
+  //       print('remove child${id}');
+  //     });
+  //   }
+  // }
+}
+
+class skilladd {
+  String? id;
+  skilladd(this.id);
 }
