@@ -22,10 +22,11 @@ class _NamePageState extends State<NamePage> {
     super.initState();
     checkUser();
     getProfile();
+    // checkPreferacne();
   }
 
-  UserName _Name = UserName();
-  final Namekey = GlobalKey<FormState>();
+  UserName name = UserName();
+  final namekey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -51,13 +52,13 @@ class _NamePageState extends State<NamePage> {
               Expanded(
                   child: Padding(
                 padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-                child: InputCreateNameFrom(Namekey: Namekey, Name: _Name),
+                child: InputCreateNameFrom(Namekey: namekey, Name: name),
               )),
             ]),
           ),
         ),
         // backgroundColor: Background,
         bottomNavigationBar:
-            ButtonSaveCreateName(Namekey: Namekey, Name: _Name));
+            ButtonSaveCreateName(Namekey: namekey, Name: name));
   }
 }

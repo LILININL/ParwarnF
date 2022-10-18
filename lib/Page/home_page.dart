@@ -25,27 +25,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    checkPreferacne();
-  }
-
-  Future<Null> checkPreferacne() async {
-    SharedPreferences Token = await SharedPreferences.getInstance();
-    String? token = Token.getString('token');
-    try {
-      if (token == null && token!.isEmpty) {
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) {
-          return const LoginMobile();
-        }));
-      } else {
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) {
-          return const SearchJop();
-        }));
-      }
-    } catch (e) {
-      print(e);
-    }
+    // checkPreferacne();
   }
 
   @override
