@@ -1,12 +1,13 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
+
 import 'package:plawarn/modules/auth/page/login_mobile.dart';
-import 'package:plawarn/modules/searchjop/page/search_jop.dart';
+import 'package:plawarn/widget/controller/data_controller.dart';
 import 'package:plawarn/widget/model/dtos/ListData/Language.dart';
 import 'package:plawarn/widget/theme/constants/scema_color.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatefulWidget {
   static const String routeName = '/home';
@@ -18,6 +19,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final check = Get.put(checkPre());
   void _changeLanguage(Language language) {
     print(language.languageCode);
   }
@@ -25,7 +27,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    // checkPreferacne();
+    check.checkComeback();
   }
 
   @override

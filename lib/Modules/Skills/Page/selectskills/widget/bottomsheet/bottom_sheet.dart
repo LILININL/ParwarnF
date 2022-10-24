@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:plawarn/modules/skills/page/selectskills/widget/api/skill_data.dart';
-import 'package:plawarn/modules/skills/page/selectskills/widget/bottomsheet/data_controller.dart';
+import 'package:plawarn/widget/controller/data_controller.dart';
 import 'package:plawarn/widget/model/dtos/skill/childrens_skill.dart';
 import 'package:plawarn/widget/model/dtos/skill/leader_skill.dart';
 import 'package:plawarn/widget/theme/constants/scema_color.dart';

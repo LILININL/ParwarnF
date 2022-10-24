@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:plawarn/modules/auth/page/login_mobile.dart';
 import 'package:plawarn/modules/auth/page/verify_otp.dart';
 import 'package:plawarn/modules/createprofile/widget/page/avatarpage/avatar_form.dart';
@@ -8,7 +9,7 @@ import 'package:plawarn/modules/createprofile/widget/page/namepage/name_page.dar
 import 'package:plawarn/modules/searchjop/page/search_jop.dart';
 import 'package:plawarn/modules/skills/page/addskill/skill_add.dart';
 import 'package:plawarn/modules/skills/page/selectskills/select_skills.dart';
-import 'package:plawarn/modules/skills/page/selectskills/widget/bottomsheet/data_controller.dart';
+import 'package:plawarn/widget/controller/data_controller.dart';
 import 'package:plawarn/page/404_page.dart';
 import 'package:plawarn/page/home_page.dart';
 import 'package:flutter/services.dart';
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => Tokenview()),
         // ChangeNotifierProvider(create: (_) => Userview()),
       ],
-      child: MaterialApp(
+      child: GetMaterialApp(
         theme: ThemeData(fontFamily: 'Noto'),
         localizationsDelegates: const [
           // AppLocalizations.delegate,

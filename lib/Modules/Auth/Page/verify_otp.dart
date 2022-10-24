@@ -218,10 +218,10 @@ class _VerifyOtpState extends State<VerifyOtp> {
                           // snackBar("OTP ไม่ถูกต้อง");
                         });
                       }
-                      if (Uid != null) {
-                        await sendverify();
-                        await getProfile();
-                        await checkUser();
+                      await sendverify();
+                      await getProfile();
+
+                      if (namecheck != null || namecheck != "") {
                         setState(() {
                           hasError = false;
                           Navigator.pushReplacement(context,
@@ -230,10 +230,7 @@ class _VerifyOtpState extends State<VerifyOtp> {
                           }));
                         });
                       }
-                      if (Uid == null) {
-                        await sendverify();
-                        await getProfile();
-                        await checkUser();
+                      if (namecheck == null || namecheck == "") {
                         Navigator.pushReplacement(context,
                             MaterialPageRoute(builder: (context) {
                           return const NamePage();

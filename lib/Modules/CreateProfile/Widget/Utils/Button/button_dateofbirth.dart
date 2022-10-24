@@ -34,8 +34,8 @@ class ButtonConDateofBirth extends StatelessWidget {
             Y = year;
             G = defalutGender;
             await sendProfile();
-            print(Uid);
-            // Navigator.pushNamed(context, '/AvatarPage');
+            print(uid);
+            Navigator.pushNamed(context, '/AvatarPage');
           },
           text: 'ดำเนินการต่อ',
           textStyle: const TextStyle(

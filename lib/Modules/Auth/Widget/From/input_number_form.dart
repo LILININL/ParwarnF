@@ -28,21 +28,18 @@ class ButtonCon extends StatelessWidget {
         child: TextButton(
           onPressed: () async {
             if (phoneNumber == null) {
-              return null;
+              return;
             } else {
               await sendotp();
               print(phoneNumber);
               print(localcode);
+              Navigator.pushNamed(context, '/VerifyOtp');
             }
-            if (serviceid!.isEmpty) {
-              return null;
-            }
-            Navigator.pushNamed(context, '/VerifyOtp');
           },
-          child: Center(
+          child: const Center(
               child: Text(
-            "ดำเนินการต่อ".toUpperCase(),
-            style: const TextStyle(
+            "ดำเนินการต่อ",
+            style: TextStyle(
               color: Colors.white,
               fontSize: 18,
               fontWeight: FontWeight.bold,

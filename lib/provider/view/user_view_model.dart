@@ -1,6 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:plawarn/modules/auth/api/mobile_auth/send_verify/send_verify.dart';
+import 'package:plawarn/modules/auth/page/login_mobile.dart';
+import 'package:plawarn/modules/createprofile/widget/page/namepage/name_page.dart';
+import 'package:plawarn/modules/searchjop/page/search_jop.dart';
+import 'package:plawarn/page/home_page.dart';
 import 'package:plawarn/provider/view/api/check_user.dart';
 import 'package:plawarn/widget/model/dtos/token/token_data.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -46,35 +51,12 @@ class Tokenview with ChangeNotifier {
   }
 }
 
-Future<GetTokendata> getToken() async {
-  final SharedPreferences sp = await SharedPreferences.getInstance();
-  final String? type = sp.getString('type');
-  final String? token = sp.getString('token');
-  return GetTokendata(accessToken: token.toString(), type: type.toString());
-}
-
 Future<bool> remove() async {
   final SharedPreferences Token = await SharedPreferences.getInstance();
+  final SharedPreferences uid = await SharedPreferences.getInstance();
+  uid.clear();
   Token.clear();
   // Token.remove;
   print(token);
   return true;
-}
-
-Future<Object> checkUser() async {
-  await getProfile();
-  final SharedPreferences saveuid = await SharedPreferences.getInstance();
-  final String? Uid = saveuid.getString('Uid');
-  print(Uid);
-  if (Uid == null) {
-    print('ไปสร้างโปรไฟล์ใหม่');
-    return true;
-  }
-  if (Uid != null) {
-    print('รับค่าโปรไฟล์ไปต่อหน้าสกิล');
-    return true;
-  } else {
-    print('ไม่มีค่า');
-    return false;
-  }
 }
