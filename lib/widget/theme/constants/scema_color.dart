@@ -16,3 +16,5 @@ const colorsuptitle = Color.fromRGBO(0, 0, 0, 0.8);
 const colorB = Color(0xFF66A4FB);
 const colorc = Color(0xFFD7E2F1);
 const colord = Color(0xFFF7FAFF);
+const colorE = Color(0xFFF7F7F7);
+const colorG = Color(0xFFDADADA);

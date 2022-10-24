@@ -100,6 +100,8 @@ class _ButtonSheetState extends State<ButtonSheet> {
                           itemBuilder: (context, index) {
                             return GFCheckboxListTile(
                               position: GFPosition.start,
+                              inactiveBgColor: colorE,
+                              activeBorderColor: colorG,
                               size: 25,
                               padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                               margin: const EdgeInsets.all(0),
@@ -116,7 +118,7 @@ class _ButtonSheetState extends State<ButtonSheet> {
                       } else if (snapshot.hasError) {
                         return Text("${snapshot.error}");
                       }
-                      return const CircularProgressIndicator();
+                      return circularProgressCenter();
                     },
                   ),
                 ]),
@@ -141,6 +143,17 @@ class _ButtonSheetState extends State<ButtonSheet> {
               ),
             )
           ],
+        ),
+      ),
+    );
+  }
+
+  circularProgressCenter() {
+    return const Center(
+      child: Padding(
+        padding: EdgeInsets.all(30),
+        child: CircularProgressIndicator(
+          valueColor: AlwaysStoppedAnimation<Color>(yell),
         ),
       ),
     );
