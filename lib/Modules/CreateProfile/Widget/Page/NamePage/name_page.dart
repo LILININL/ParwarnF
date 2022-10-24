@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:plawarn/Modules/Skills/Page/selectskills/widget/bottomsheet/data_controller.dart';
 import 'package:plawarn/modules/createprofile/widget/utils/appbar/create_profile.dart';
 import 'package:plawarn/modules/createprofile/widget/utils/button/button_createname.dart';
 import 'package:plawarn/modules/createprofile/widget/utils/form/inputcreatename_form.dart';
@@ -20,8 +23,10 @@ class _NamePageState extends State<NamePage> {
   @override
   void initState() {
     super.initState();
+    Get.put(checkPre());
     checkUser();
     getProfile();
+
     // checkPreferacne();
   }
 

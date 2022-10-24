@@ -87,7 +87,7 @@ class _ButtonSheetState extends State<ButtonSheet> {
               ),
               alignment: Alignment.topLeft,
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(10, 5, 15, 0),
+                padding: const EdgeInsets.fromLTRB(10, 5, 10, 0),
                 child: Column(children: <Widget>[
                   FutureBuilder<List<ChildrensSkill>>(
                     future: childrensSkill,
@@ -123,8 +123,9 @@ class _ButtonSheetState extends State<ButtonSheet> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(10, 15, 10, 0),
+              padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
               child: GFButton(
+                position: GFPosition.start,
                 onPressed: () {
                   setState(() {
                     print(childskillid.length);

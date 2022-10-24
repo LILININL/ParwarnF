@@ -41,7 +41,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 // }
 // Get X
 
-class controller extends GetxController {
+class checkPre extends GetxController {
   @override
   void onInit() {
     checkPreferacne();
