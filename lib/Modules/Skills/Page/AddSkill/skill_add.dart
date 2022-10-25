@@ -8,7 +8,7 @@ import 'package:plawarn/widget/theme/constants/scema_textstyle.dart';
 class Addskill extends StatefulWidget {
   const Addskill({super.key});
 
-  static const String routeName = '/Addskill';
+  static const String routeName = '/addskill';
 
   @override
   State<Addskill> createState() => _Addskilltate();

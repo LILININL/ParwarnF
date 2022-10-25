@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:getwidget/getwidget.dart';
+import 'package:plawarn/modules/skills/page/selectskills/searchskills/search_skills.dart';
+import 'package:plawarn/modules/skills/page/selectskills/widget/api/skill_data.dart';
+import 'package:plawarn/widget/model/dtos/skill/childrens_skill.dart';
 import 'package:plawarn/widget/theme/constants/scema_color.dart';
 
 class Searchskillbar extends StatelessWidget implements PreferredSizeWidget {
@@ -9,63 +14,44 @@ class Searchskillbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-        toolbarHeight: 70,
-        backgroundColor: Colors.white,
-        leading: Padding(
-          padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-          child: IconButton(
-            icon: const Icon(Icons.arrow_back_ios),
-            color: Colors.blueAccent,
-            iconSize: 18,
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
+      toolbarHeight: 70,
+      backgroundColor: Colors.white,
+      leading: Padding(
+        padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+        child: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          color: Colors.blueAccent,
+          iconSize: 18,
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
-        elevation: 0,
-        leadingWidth: 30,
-        title: Container(
-          width: double.infinity,
-          height: 50,
-          decoration: BoxDecoration(
-              color: colord,
-              borderRadius: BorderRadius.circular(6),
-              border: Border.all(color: colorc)),
-          child: const TextField(
-            decoration: InputDecoration(
-                border: InputBorder.none,
-                prefixIcon: Icon(Icons.search),
-                hintText: 'ค้นหาทักษะ',
-                hintStyle: TextStyle(color: Colors.grey)),
-          ),
-        ));
+      ),
+      elevation: 0,
+      leadingWidth: 30,
+      title: Container(
+        width: double.infinity,
+        height: 50,
+        decoration: BoxDecoration(
+            color: colord,
+            borderRadius: BorderRadius.circular(6),
+            border: Border.all(color: colorc)),
+        child: TextField(
+          onTap: () {
+            Get.to(() => Skillsearch(),
+                // duration: const Duration(seconds: 1),
+                transition: Transition.rightToLeft);
+          },
+          decoration: const InputDecoration(
+              border: InputBorder.none,
+              prefixIcon: Icon(Icons.search),
+              hintText: 'ค้นหาทักษะ',
+              hintStyle: TextStyle(color: Colors.grey)),
+        ),
+      ),
+    );
   }
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
-
-
-// GFSearchBar(
-//   searchList: list,
-//   searchQueryBuilder: (query, list) {
-//     return list
-//         .where((item) =>
-//             item.toLowerCase().contains(query.toLowerCase()))
-//         .toList();
-//   },
-//   overlaySearchListItemBuilder: (item) {
-//     return Container(
-//       padding: const EdgeInsets.all(8),
-//       child: Text(
-//         item,
-//         style: const TextStyle(fontSize: 18),
-//       ),
-//     );
-//   },
-//   onItemSelected: (item) {
-//     setState(() {
-//       print('$item');
-//     });
-//   },
-// ),

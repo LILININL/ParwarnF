@@ -7,7 +7,7 @@ import 'package:plawarn/widget/theme/constants/scema_color.dart';
 import 'package:plawarn/widget/theme/constants/scema_textstyle.dart';
 
 class DateOfBirthPage extends StatefulWidget {
-  static const String routeName = '/DateOfBirthPage';
+  static const String routeName = '/dateofbirthpage';
   const DateOfBirthPage({super.key});
 
   @override

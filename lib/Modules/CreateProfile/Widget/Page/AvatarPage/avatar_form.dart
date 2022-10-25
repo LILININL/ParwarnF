@@ -1,17 +1,19 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:plawarn/modules/createprofile/widget/utils/appbar/create_profile.dart';
+import 'package:plawarn/modules/searchjop/page/search_jop.dart';
 
 import 'package:plawarn/widget/theme/constants/scema_color.dart';
 import 'package:plawarn/widget/theme/constants/scema_textstyle.dart';
 
 class AvatarPage extends StatefulWidget {
-  static const String routeName = '/AvatarPage';
+  static const String routeName = '/avatarpage';
   const AvatarPage({super.key});
 
   @override
@@ -95,8 +97,9 @@ class _AvatarPageState extends State<AvatarPage> {
           child: GFButton(
             onPressed: () async {
               // await uplode();
-
-              Navigator.pushNamed(context, '/SearchJop');
+              Get.to(() => const SearchJop(),
+                  // duration: const Duration(seconds: 1),
+                  transition: Transition.rightToLeft);
             },
             text: 'ดำเนินการต่อ',
             textStyle: buttonContinua,

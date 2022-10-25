@@ -2,6 +2,8 @@
 
 import 'dart:async';
 
+import 'package:get/get.dart';
+import 'package:getwidget/getwidget.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:plawarn/modules/auth/api/mobile_auth/send_verify/send_verify.dart';
@@ -10,12 +12,12 @@ import 'package:plawarn/modules/auth/widget/from/input_number_form.dart';
 import 'package:plawarn/modules/createprofile/widget/page/namepage/name_page.dart';
 import 'package:plawarn/modules/searchjop/page/search_jop.dart';
 import 'package:plawarn/provider/view/api/check_user.dart';
-import 'package:plawarn/provider/view/user_view_model.dart';
 import 'package:plawarn/widget/theme/constants/scema_color.dart';
+import 'package:plawarn/widget/theme/constants/scema_textstyle.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class VerifyOtp extends StatefulWidget {
-  static const String routeName = '/VerifyOtp';
+  static const String routeName = '/verifyotp';
 
   const VerifyOtp({
     Key? key,
@@ -91,32 +93,28 @@ class _VerifyOtpState extends State<VerifyOtp> {
                 padding: const EdgeInsets.fromLTRB(10, 5, 10, 10),
                 child: RichText(
                   text: TextSpan(
-                      text: "โปรดกรอกรหัสยืนยัน 6 หลักที่ส่งไปยังหมายเลข \n",
-                      children: [
-                        // const WidgetSpan(
-                        //     child: Image(
-                        //   image: AssetImage('assets/icons/Thailandic.png'),
-                        //   height: 28,
-                        //   width: 28,
-                        //   alignment: Alignment.topCenter,
-                        // )),
-                        //เบอร์มือถือ
-                        TextSpan(
-                          text: phoneNumber,
-                          style: const TextStyle(
-                            color: blurpimary,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                            fontFamily: 'Noto',
-                          ),
+                    text: "โปรดกรอกรหัสยืนยัน 6 หลักที่ส่งไปยังหมายเลข \n",
+                    children: [
+                      // const WidgetSpan(
+                      //     child: Image(
+                      //   image: AssetImage('assets/icons/Thailandic.png'),
+                      //   height: 28,
+                      //   width: 28,
+                      //   alignment: Alignment.topCenter,
+                      // )),
+                      //เบอร์มือถือ
+                      TextSpan(
+                        text: phoneNumber,
+                        style: const TextStyle(
+                          color: blurpimary,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          fontFamily: 'Noto',
                         ),
-                      ],
-                      style: const TextStyle(
-                        height: 1.8,
-                        color: textblack54,
-                        fontSize: 18,
-                        fontFamily: 'Noto',
-                      )),
+                      ),
+                    ],
+                    style: textStyle18bold,
+                  ),
                   textAlign: TextAlign.start,
                 ),
               ),
@@ -141,7 +139,7 @@ class _VerifyOtpState extends State<VerifyOtp> {
                       animationType: AnimationType.fade,
                       validator: (v) {
                         if (v!.length < 6) {
-                          return "ใส่รหัสไม่ครบถ้วน";
+                          return "กรุณากรอกรหัสยืนยันให้ครบทุกช่อง!";
                         } else {
                           return null;
                         }
@@ -177,77 +175,43 @@ class _VerifyOtpState extends State<VerifyOtp> {
                       },
                     )),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                child: Text(
-                  hasError ? "กรุณากรอกข้อมูลให้ครบทุกช่อง" : "",
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400),
-                ),
-              ),
+
               Container(
                 margin:
-                    const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-                decoration: BoxDecoration(
-                    color: yell,
-                    borderRadius: BorderRadius.circular(5),
-                    boxShadow: const [
-                      BoxShadow(
-                          color: Colors.white,
-                          offset: Offset(1, -2),
-                          blurRadius: 5),
-                      BoxShadow(
-                          color: Colors.white,
-                          offset: Offset(-1, 2),
-                          blurRadius: 5)
-                    ]),
-                child: ButtonTheme(
-                  height: 50,
-                  child: TextButton(
-                    onPressed: () async {
-                      final SharedPreferences saveuid =
-                          await SharedPreferences.getInstance();
-                      final String? Uid = saveuid.getString('Uid');
-                      otpkey.currentState!.validate();
-                      // 123456 ก่อนนะครับ
-                      if (currentText?.length != 6 || currentText != "123456") {
-                        errorController!.add(ErrorAnimationType.shake);
-                        setState(() {
-                          // snackBar("OTP ไม่ถูกต้อง");
-                        });
-                      }
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+                child: GFButton(
+                  color: yell,
+                  fullWidthButton: true,
+                  size: 50,
+                  onPressed: () async {
+                    final SharedPreferences saveuid =
+                        await SharedPreferences.getInstance();
+                    final String? Uid = saveuid.getString('Uid');
+                    otpkey.currentState!.validate();
+                    // 123456 ก่อนนะครับ
+                    if (currentText?.length != 6 || currentText != "123456") {
+                      errorController!.add(ErrorAnimationType.shake);
+                      setState(() {
+                        hasError = false;
+                        //รหัสไม่ถูกต้อง
+                      });
+                    } else {
                       await sendverify();
                       await getProfile();
-
                       if (namecheck != null || namecheck != "") {
-                        setState(() {
-                          hasError = false;
-                          Navigator.pushReplacement(context,
-                              MaterialPageRoute(builder: (context) {
-                            return const SearchJop();
-                          }));
-                        });
+                        Get.to(() => const SearchJop(),
+                            duration: const Duration(seconds: 1),
+                            transition: Transition.rightToLeft);
                       }
                       if (namecheck == null || namecheck == "") {
-                        Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) {
-                          return const NamePage();
-                        }));
+                        Get.to(() => const NamePage(),
+                            duration: const Duration(seconds: 1),
+                            transition: Transition.rightToLeft);
                       }
-                    },
-                    child: Center(
-                        child: Text(
-                      "เข้าสู่ระบบ".toUpperCase(),
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Noto',
-                      ),
-                    )),
-                  ),
+                    }
+                  },
+                  text: "เข้าสู่ระบบ",
+                  textStyle: buttonContinua,
                 ),
               ),
               Row(
@@ -275,24 +239,19 @@ class _VerifyOtpState extends State<VerifyOtp> {
                   ),
                 ],
               ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height / 3.2,
-              ),
-              const Center(
-                child: Padding(
-                  padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                  child: Text(
-                    textAlign: TextAlign.center,
-                    " เมื่อเข้าสู่ระบบคุณได้ยอมรับ เงื่อนไขและข้อตกลง \n และนโยบายความเป็นส่วนตัวของ ปลาวาฬ แล้ว",
-                    style: TextStyle(
-                      color: textblack,
-                      fontSize: 16,
-                      fontFamily: 'Noto',
-                    ),
-                  ),
-                ),
-              ),
             ],
+          ),
+        ),
+      ),
+      bottomSheet: Container(
+        width: double.infinity,
+        height: 120,
+        color: Colors.transparent,
+        child: const Center(
+          child: Text(
+            "เมื่อดำเนินการต่อคุณได้ยอมรับ เงื่อนไขและข้อตกลง \n และนโยบายความเป็นส่วนตัวของ ปลาวาฬ แล้ว",
+            style: textStyle16bold,
+            textAlign: TextAlign.center,
           ),
         ),
       ),

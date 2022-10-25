@@ -13,7 +13,7 @@ import 'package:plawarn/widget/theme/constants/scema_color.dart';
 import 'package:plawarn/widget/theme/constants/scema_textstyle.dart';
 
 class Selectskill extends StatefulWidget {
-  static const String routeName = '/Selectskill';
+  static const String routeName = '/selectskill';
 
   @override
   State<Selectskill> createState() => _SelectskillState();
@@ -25,8 +25,6 @@ class _SelectskillState extends State<Selectskill> {
   @override
   void initState() {
     super.initState();
-    // getProfile();
-    // checkUser();
   }
 
   gridView(AsyncSnapshot<List<Skilldata>> snapshot) {
@@ -46,8 +44,9 @@ class _SelectskillState extends State<Selectskill> {
               print('id=${skilldata.id}');
               print('name=${skilldata.name}');
               print('sequence=${skilldata.sequence}');
-              setState(() {});
-              idkskill = skilldata.id;
+              setState(() {
+                idkskill = skilldata.id;
+              });
 
               showModalBottomSheet(
                   isScrollControlled: true,
@@ -69,7 +68,12 @@ class _SelectskillState extends State<Selectskill> {
 
   circularProgress() {
     return const Center(
-      child: CircularProgressIndicator(),
+      child: Padding(
+        padding: EdgeInsets.all(30),
+        child: CircularProgressIndicator(
+          valueColor: AlwaysStoppedAnimation<Color>(yell),
+        ),
+      ),
     );
   }
 

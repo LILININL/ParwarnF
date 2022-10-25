@@ -5,9 +5,10 @@ import 'package:plawarn/modules/auth/widget/button/line_login.dart';
 import 'package:plawarn/modules/auth/widget/button/register_button.dart';
 import 'package:plawarn/modules/auth/widget/from/input_number_form.dart';
 import 'package:plawarn/widget/theme/constants/scema_color.dart';
+import 'package:plawarn/widget/theme/constants/scema_textstyle.dart';
 
 class LoginMobile extends StatefulWidget {
-  static const String routeName = '/LoginMobile';
+  static const String routeName = '/loginmobile';
 
   const LoginMobile({Key? key}) : super(key: key);
 
@@ -97,40 +98,36 @@ class _LoginMobileState extends State<LoginMobile> {
                 ),
               ],
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height / 7,
-            ),
-            const Center(
+          ],
+        ),
+      ),
+      bottomSheet: Container(
+        width: double.infinity,
+        height: 300,
+        color: Colors.transparent,
+        child: Column(
+          children: const <Widget>[
+            Center(
               child: Text(
                 textAlign: TextAlign.center,
                 "หรือ",
-                style: TextStyle(
-                  color: textblack54,
-                  fontSize: 16,
-                  fontFamily: 'Noto',
-                ),
+                style: textStyle16,
               ),
             ),
-            const LineLogin(),
-            const FacebookLogin(),
             SizedBox(
-              height: MediaQuery.of(context).size.height / 20,
+              height: 20,
             ),
-            const Center(
-              child: Padding(
-                padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                child: Text(
-                  textAlign: TextAlign.center,
-                  " เพิ่งเริ่มใช้ ปลาวาฬ ใช่ไหม",
-                  style: TextStyle(
-                    color: textblack,
-                    fontSize: 16,
-                    fontFamily: 'Noto',
-                  ),
-                ),
-              ),
+            LineLogin(),
+            FacebookLogin(),
+            SizedBox(
+              height: 35,
             ),
-            const Center(child: Register()),
+            Text(
+              textAlign: TextAlign.center,
+              " เพิ่งเริ่มใช้ ปลาวาฬ ใช่ไหม",
+              style: textStyle16,
+            ),
+            Center(child: Register()),
           ],
         ),
       ),

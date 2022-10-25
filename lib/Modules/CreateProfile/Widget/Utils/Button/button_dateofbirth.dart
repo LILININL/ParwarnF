@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:plawarn/modules/auth/api/mobile_auth/send_verify/send_verify.dart';
 import 'package:plawarn/modules/createprofile/widget/api/profile_info.dart';
+import 'package:plawarn/modules/createprofile/widget/page/avatarpage/avatar_form.dart';
 import 'package:plawarn/widget/theme/constants/scema_color.dart';
 
 class ButtonConDateofBirth extends StatelessWidget {
@@ -35,7 +37,9 @@ class ButtonConDateofBirth extends StatelessWidget {
             G = defalutGender;
             await sendProfile();
             print(uid);
-            Navigator.pushNamed(context, '/AvatarPage');
+            Get.to(() => const AvatarPage(),
+                // duration: const Duration(seconds: 1),
+                transition: Transition.rightToLeft);
           },
           text: 'ดำเนินการต่อ',
           textStyle: const TextStyle(

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:plawarn/modules/createprofile/widget/page/dateofbirthpage/dateofbirth_page.dart';
 import 'package:plawarn/widget/model/dtos/createprofile/create_profile.dart';
 import 'package:plawarn/widget/theme/constants/scema_color.dart';
 
@@ -29,7 +31,10 @@ class ButtonSaveCreateName extends StatelessWidget {
               Namekey.currentState!.save();
               Fname = _Name.fristname;
               Lname = _Name.lastname;
-              Navigator.pushNamed(context, '/DateOfBirthPage');
+              Get.to(() => const DateOfBirthPage(),
+                  // duration: const Duration(seconds: 1),
+                  transition: Transition.rightToLeft);
+
               print(_Name.fristname);
               print(_Name.lastname);
 

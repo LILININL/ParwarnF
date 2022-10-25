@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getwidget/components/button/gf_button.dart';
+import 'package:plawarn/widget/theme/constants/scema_textstyle.dart';
 
 class LineLogin extends StatelessWidget {
   const LineLogin({
@@ -13,11 +14,7 @@ class LineLogin extends StatelessWidget {
       child: GFButton(
         onPressed: () {},
         text: "เข้าสู่ระบบโดยใช้ Line",
-        textStyle: const TextStyle(
-          fontSize: 18,
-          fontFamily: 'Noto',
-          fontWeight: FontWeight.bold,
-        ),
+        textStyle: buttonContinua,
         textColor: Colors.white,
         color: const Color.fromRGBO(9, 202, 72, 0.8),
         fullWidthButton: true,

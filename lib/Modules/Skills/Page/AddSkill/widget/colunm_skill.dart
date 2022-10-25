@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:plawarn/modules/skills/page/selectskills/select_skills.dart';
 import 'package:plawarn/widget/theme/constants/scema_color.dart';
@@ -29,14 +30,15 @@ class ColounmAddSkill extends StatelessWidget {
                     type: GFBorderType.rect,
                     color: blurpimary,
                     child: TextButton(
-                      child: const Text(
-                        'ทักษะที่ 1',
-                        style: SkillsTextStyle18,
-                      ),
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/Selectskill');
-                      },
-                    ),
+                        child: const Text(
+                          'ทักษะที่ 1',
+                          style: SkillsTextStyle18,
+                        ),
+                        onPressed: () {
+                          Get.to(() => Selectskill(),
+                              // duration: const Duration(seconds: 1),
+                              transition: Transition.rightToLeft);
+                        }),
                   ),
                 ),
               ),

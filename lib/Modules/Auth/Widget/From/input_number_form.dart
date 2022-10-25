@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:getwidget/getwidget.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:plawarn/modules/auth/api/mobile_auth/send_otp/send_otp.dart';
+import 'package:plawarn/modules/auth/page/verify_otp.dart';
 import 'package:plawarn/widget/theme/constants/scema_color.dart';
+import 'package:plawarn/widget/theme/constants/scema_textstyle.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ButtonCon extends StatelessWidget {
@@ -15,38 +19,22 @@ class ButtonCon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
-      decoration: BoxDecoration(
-          color: yell,
-          borderRadius: BorderRadius.circular(5),
-          boxShadow: const [
-            BoxShadow(
-                color: Colors.white, offset: Offset(1, -2), blurRadius: 5),
-            BoxShadow(color: Colors.white, offset: Offset(-1, 2), blurRadius: 5)
-          ]),
-      child: ButtonTheme(
-        height: 50,
-        child: TextButton(
-          onPressed: () async {
-            if (phoneNumber == null) {
-              return;
-            } else {
-              await sendotp();
-              print(phoneNumber);
-              print(localcode);
-              Navigator.pushNamed(context, '/VerifyOtp');
-            }
-          },
-          child: const Center(
-              child: Text(
-            "ดำเนินการต่อ",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-              fontFamily: 'Noto',
-            ),
-          )),
-        ),
+      child: GFButton(
+        size: 55,
+        onPressed: () async {
+          if (phoneNumber == null) {
+            return;
+          } else {
+            await sendotp();
+            Get.to(() => const VerifyOtp(),
+                duration: const Duration(seconds: 1),
+                transition: Transition.rightToLeft);
+          }
+        },
+        text: "ดำเนินการต่อ",
+        textStyle: buttonContinua,
+        color: yell,
+        fullWidthButton: true,
       ),
     );
   }

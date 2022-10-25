@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:plawarn/modules/skills/page/addskill/skill_add.dart';
 import 'package:plawarn/widget/theme/constants/scema_textstyle.dart';
 
 class CardSearch1 extends StatelessWidget {
@@ -39,7 +41,9 @@ class CardSearch1 extends StatelessWidget {
               size: 49,
               fullWidthButton: true,
               onPressed: () {
-                Navigator.pushNamed(context, '/Addskill');
+                Get.to(() => const Addskill(),
+                    // duration: const Duration(seconds: 1),
+                    transition: Transition.rightToLeft);
               },
               text: 'เริ่มเลย',
               textStyle: buttonContinua,

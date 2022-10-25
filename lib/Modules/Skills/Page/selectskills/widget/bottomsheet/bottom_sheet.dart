@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:plawarn/modules/skills/page/selectskills/widget/api/skill_data.dart';
-import 'package:plawarn/widget/controller/data_controller.dart';
 import 'package:plawarn/widget/model/dtos/skill/childrens_skill.dart';
 import 'package:plawarn/widget/model/dtos/skill/leader_skill.dart';
 import 'package:plawarn/widget/theme/constants/scema_color.dart';
@@ -27,7 +26,7 @@ class _ButtonSheetState extends State<ButtonSheet> {
   @override
   void initState() {
     super.initState();
-    getSkill();
+    // getSkill();
   }
 
   @override
@@ -78,7 +77,8 @@ class _ButtonSheetState extends State<ButtonSheet> {
             ),
             const Padding(
               padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
-              child: Text('เลือกทักษะที่คุณสามารถทำได้', style: subtitletext18),
+              child: Text('เลือกทักษะที่คุณสามารถทำได้มากสุด 3 รายการ',
+                  style: subtitletext18),
             ),
             Container(
               constraints: const BoxConstraints(
@@ -106,12 +106,13 @@ class _ButtonSheetState extends State<ButtonSheet> {
                               padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                               margin: const EdgeInsets.all(0),
                               value: skillsChecked
-                                  .contains(snapshot.data![index].id!),
+                                  .contains(snapshot.data![index].name!),
                               onChanged: (val) {
-                                _onSelected(val, snapshot.data![index].id!,
+                                _onSelected(val, snapshot.data![index].name!,
                                     snapshot.data![index].type!);
                               },
-                              title: Text(snapshot.data![index].name!),
+                              title: Text(snapshot.data![index].name!,
+                                  style: textStyle18),
                             );
                           },
                         );
@@ -125,12 +126,12 @@ class _ButtonSheetState extends State<ButtonSheet> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+              padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
               child: GFButton(
                 position: GFPosition.start,
                 onPressed: () {
                   setState(() {
-                    print(childskillid.length);
+                    print(skillsChecked);
                   });
 
                   // Navigator.pop(context);
@@ -162,7 +163,7 @@ class _ButtonSheetState extends State<ButtonSheet> {
   late List<skilladd> childskillid;
 
   void _onSelected(bool selected, String id, String parent) {
-    if (selected == true) {
+    if (selected == true && skillsChecked.length <= 2) {
       setState(() {
         skillsChecked.add(id);
         childskillid = skillsChecked.map((e) => skilladd(e)).toList();
@@ -174,21 +175,6 @@ class _ButtonSheetState extends State<ButtonSheet> {
       });
     }
   }
-
-  // Future<void> _onSelected(bool selected, String id) async {
-  //   if (selected == true) {
-  //     setState(() {
-  //       skillsChecked.add(id);
-  //       childskillid = id as List;
-  //       print('Add child${id}');
-  //     });
-  //   } else {
-  //     setState(() {
-  //       skillsChecked.remove(id);
-  //       print('remove child${id}');
-  //     });
-  //   }
-  // }
 }
 
 class skilladd {

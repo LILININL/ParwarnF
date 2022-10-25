@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getwidget/components/button/gf_button.dart';
+import 'package:plawarn/widget/theme/constants/scema_textstyle.dart';
 
 class FacebookLogin extends StatelessWidget {
   const FacebookLogin({
@@ -13,11 +14,7 @@ class FacebookLogin extends StatelessWidget {
       child: GFButton(
         onPressed: () {},
         text: "เข้าสู่ระบบโดยใช้ Facebook",
-        textStyle: const TextStyle(
-          fontSize: 18,
-          fontFamily: 'Noto',
-          fontWeight: FontWeight.bold,
-        ),
+        textStyle: buttonContinua,
         textColor: Colors.white,
         color: const Color.fromRGBO(38, 125, 253, 0.8),
         fullWidthButton: true,

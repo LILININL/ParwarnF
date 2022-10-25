@@ -86,23 +86,21 @@ class _HomePageState extends State<HomePage> {
                         )),
                   ],
                 ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height / 3,
-                ),
-                onboard(),
               ],
             ),
           ),
         ),
+        bottomSheet: onboard(),
         bottomNavigationBar: buttonbotopmbar(context));
   }
 
   Container onboard() {
     return Container(
       constraints: const BoxConstraints(
-        maxHeight: double.infinity,
+        maxHeight: 380,
         minWidth: double.infinity,
       ),
+      color: Colors.transparent,
       child: Center(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
@@ -148,7 +146,9 @@ Container buttonbotopmbar(BuildContext context) {
       padding: const EdgeInsets.fromLTRB(10, 0, 10, 25),
       child: GFButton(
         onPressed: () {
-          Navigator.pushNamed(context, LoginMobile.routeName);
+          Get.to(() => const LoginMobile(),
+              // duration: const Duration(seconds: 1),
+              transition: Transition.rightToLeft);
         },
         text: 'เข้าสู่ระบบ',
         color: yell,

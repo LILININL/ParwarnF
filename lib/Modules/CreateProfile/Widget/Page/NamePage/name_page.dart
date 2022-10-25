@@ -11,7 +11,7 @@ import 'package:plawarn/widget/model/dtos/createprofile/create_profile.dart';
 import 'package:plawarn/widget/theme/constants/scema_textstyle.dart';
 
 class NamePage extends StatefulWidget {
-  static const String routeName = '/NamePage';
+  static const String routeName = '/namepage';
   const NamePage({super.key});
 
   @override

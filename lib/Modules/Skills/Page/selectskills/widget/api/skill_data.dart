@@ -16,6 +16,7 @@ class SkillRequest {
   }
 
   static Future<List<Skilldata>> fetchSkill() async {
+    await Future.delayed(const Duration(seconds: 1));
     SharedPreferences saveToken = await SharedPreferences.getInstance();
     final token = saveToken.getString('token');
     SharedPreferences saveType = await SharedPreferences.getInstance();
@@ -35,6 +36,7 @@ class SkillRequest {
 }
 
 Future<List<ChildrensSkill>> getSkill() async {
+  await Future.delayed(const Duration(seconds: 1));
   String url = 'https://api2.plawarn.com/skills/$idkskill';
   SharedPreferences saveToken = await SharedPreferences.getInstance();
   final token = saveToken.getString('token');
