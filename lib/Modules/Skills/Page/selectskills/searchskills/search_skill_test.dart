@@ -8,6 +8,7 @@ import 'package:plawarn/Modules/Skills/Page/selectskills/widget/api/skill_data.d
 
 import 'package:plawarn/widget/model/dtos/skill/all_skill.dart';
 import 'package:plawarn/widget/theme/constants/scema_color.dart';
+import 'package:plawarn/widget/theme/constants/scema_textstyle.dart';
 
 class Searchskillall extends StatefulWidget {
   const Searchskillall({super.key});
@@ -54,8 +55,9 @@ class _SearchskillallState extends State<Searchskillall> {
             //search box
             controller: chskill.searchController,
             focusNode: chskill.focusNode,
+            onChanged: chskill.search,
             decoration: const InputDecoration(
-              hintText: 'Search',
+              hintText: 'ค้นหาทักษะ',
               hintStyle: TextStyle(color: Colors.grey),
               border: InputBorder.none,
               prefixIcon: Icon(
@@ -87,29 +89,27 @@ class _SearchskillallState extends State<Searchskillall> {
                         return Column(
                           children: <Widget>[
                             Card(
-                              child: ListTile(
-                                title: Text(skill.name!),
-                                leading: SizedBox(
-                                  height: 40,
-                                  width: 40,
-                                  child: ClipRRect(
-                                    child: Hero(
-                                      tag: 'imgae${skill.id}',
-                                      child: FadeInImage.assetNetwork(
-                                        placeholder:
-                                            'assets/images/loading.gif',
-                                        image: skill.icon!,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                trailing: GFCheckbox(
-                                  value: skillsChecked.contains(skill.name!),
-                                  size: 25,
-                                  onChanged: (value) {
-                                    print(skill.name!);
-                                  },
-                                ),
+                              child: GFCheckboxListTile(
+                                avatar: skill.icon != null
+                                    ? Image.network(
+                                        skill.icon!,
+                                        scale: 2,
+                                      )
+                                    : const Icon(Icons.image),
+                                type: GFCheckboxType.basic,
+                                size: 25,
+                                title:
+                                    Text(skill.name!, style: textStyle20bold),
+                                value: skillsChecked.contains(skill.name!),
+                                onChanged: (value) {
+                                  setState(() {
+                                    if (value) {
+                                      skillsChecked.add(skill.name!);
+                                    } else {
+                                      skillsChecked.remove(skill.name!);
+                                    }
+                                  });
+                                },
                               ),
                             ),
                             FutureBuilder(
@@ -122,16 +122,17 @@ class _SearchskillallState extends State<Searchskillall> {
                                     itemBuilder: (context, index) {
                                       final child = skill.childrens![index];
                                       return Card(
-                                        child: ListTile(
-                                          title: Text(child.name!),
-                                          trailing: GFCheckbox(
-                                            value: skillsChecked
-                                                .contains(skill.name!),
-                                            size: 25,
-                                            onChanged: (value) {
-                                              print(child.name!);
-                                            },
+                                        child: GFCheckboxListTile(
+                                          size: 25,
+                                          title: Text(
+                                            child.name!,
+                                            style: textStyle18bold,
                                           ),
+                                          value: skillsChecked
+                                              .contains(child.name!),
+                                          onChanged: (value) {
+                                            print(child.name!);
+                                          },
                                         ),
                                       );
                                     },

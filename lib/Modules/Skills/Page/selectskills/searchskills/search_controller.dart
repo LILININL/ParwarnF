@@ -11,6 +11,21 @@ class SearchskillallController extends GetxController {
   Future<List<Skillall>> skill = SkillallRequest.fetchSkill();
   final List searchResult = [];
 
+  void search(String query) {
+    final List searchResult = [];
+    if (query.isNotEmpty) {
+      skill.then((value) {
+        value.forEach((element) {
+          if (element.name!.contains(query)) {
+            searchResult.add(element);
+          }
+        });
+      });
+    } else {
+      searchResult.clear();
+    }
+  }
+
   @override
   void onInit() {
     super.onInit();
