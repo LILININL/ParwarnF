@@ -31,7 +31,7 @@ class checkPre extends GetxController {
       }
       await getProfile();
       if (namecheck.toString() == "") {
-        await remove();
+        await logout();
         Get.offAll(() => const HomePage());
       } else {
         Get.offAll(() => const SearchJop());

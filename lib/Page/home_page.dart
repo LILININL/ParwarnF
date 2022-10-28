@@ -19,7 +19,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final check = Get.put(checkPre());
   void _changeLanguage(Language language) {
     print(language.languageCode);
   }
@@ -27,7 +26,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    check.checkComeback();
+    // check.checkComeback();
   }
 
   @override
@@ -43,8 +42,9 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  // crossAxisAlignment: CrossAxisAlignment.start,
+
                   children: <Widget>[
                     Expanded(
                       flex: 1,
@@ -59,29 +59,36 @@ class _HomePageState extends State<HomePage> {
                     Expanded(
                         flex: 1,
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-                          child: DropdownButton(
-                            icon: Image.asset(
-                              'assets/flag/th.png',
-                              scale: 3,
+                          padding: const EdgeInsets.fromLTRB(10, 10, 20, 0),
+                          child: DropdownButtonHideUnderline(
+                            child: ButtonTheme(
+                              alignedDropdown: true,
+                              child: DropdownButton(
+                                icon: Image.asset(
+                                  'assets/flag/th.png',
+                                  scale: 3,
+                                ),
+
+                                items: Language.languageList()
+                                    .map<DropdownMenuItem<Language>>(
+                                        (lang) => DropdownMenuItem(
+                                            value: lang,
+                                            child: Row(
+                                              // mainAxisAlignment:
+                                              //     MainAxisAlignment
+                                              //         .spaceBetween,
+                                              children: <Widget>[
+                                                Text(lang.flag),
+
+                                                // Text(lang.name)
+                                              ],
+                                            )))
+                                    .toList(),
+                                onChanged: (Language? language) {
+                                  _changeLanguage(language!);
+                                }, // Row>,
+                              ),
                             ),
-                            underline: const SizedBox(),
-                            items: Language.languageList()
-                                .map<DropdownMenuItem<Language>>(
-                                    (lang) => DropdownMenuItem(
-                                        value: lang,
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: <Widget>[
-                                            Text(lang.flag),
-                                            Text(lang.name)
-                                          ],
-                                        )))
-                                .toList(),
-                            onChanged: (Language? language) {
-                              _changeLanguage(language!);
-                            }, // Row>,
                           ),
                         )),
                   ],
@@ -97,7 +104,7 @@ class _HomePageState extends State<HomePage> {
   Container onboard() {
     return Container(
       constraints: const BoxConstraints(
-        maxHeight: 380,
+        maxHeight: 480,
         minWidth: double.infinity,
       ),
       color: Colors.transparent,

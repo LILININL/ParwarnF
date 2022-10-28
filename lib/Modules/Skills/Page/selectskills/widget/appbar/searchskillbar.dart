@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:plawarn/modules/skills/page/selectskills/searchskills/search_skill_test.dart';
 import 'package:plawarn/modules/skills/page/selectskills/searchskills/search_skills.dart';
 import 'package:plawarn/modules/skills/page/selectskills/widget/api/skill_data.dart';
 import 'package:plawarn/widget/model/dtos/skill/childrens_skill.dart';
@@ -38,7 +39,7 @@ class Searchskillbar extends StatelessWidget implements PreferredSizeWidget {
             border: Border.all(color: colorc)),
         child: TextField(
           onTap: () {
-            Get.to(() => Skillsearch(),
+            Get.to(() => Searchskillall(),
                 // duration: const Duration(seconds: 1),
                 transition: Transition.rightToLeft);
           },

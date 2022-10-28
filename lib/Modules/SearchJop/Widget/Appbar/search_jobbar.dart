@@ -20,7 +20,7 @@ class SearcjJobbar extends StatelessWidget implements PreferredSizeWidget {
         color: Colors.white,
         iconSize: 18,
         onPressed: () => {
-          remove(),
+          logout(),
           Get.to(() => const HomePage(),
               // duration: const Duration(seconds: 1),
               transition: Transition.rightToLeft)

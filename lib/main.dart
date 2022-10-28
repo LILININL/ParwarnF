@@ -14,12 +14,14 @@ import 'package:plawarn/page/404_page.dart';
 import 'package:plawarn/page/home_page.dart';
 import 'package:flutter/services.dart';
 import 'package:plawarn/provider/view/user_view_model.dart';
+import 'package:plawarn/widget/controller/data_controller.dart';
 import 'package:provider/provider.dart';
 // import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 // import 'package:flutter_localizations/flutter_localizations.dart';
 // import 'l10n/support_locale.dart';
 
 void main() {
+  final check = Get.put(checkPre());
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]).then((_) {

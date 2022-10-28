@@ -51,7 +51,7 @@ class Tokenview with ChangeNotifier {
   }
 }
 
-Future<bool> remove() async {
+Future<bool> logout() async {
   final SharedPreferences Token = await SharedPreferences.getInstance();
   final SharedPreferences uid = await SharedPreferences.getInstance();
   uid.clear();
