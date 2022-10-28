@@ -131,6 +131,14 @@ class _SearchskillallState extends State<Searchskillall> {
                                           value: skillsChecked
                                               .contains(child.name!),
                                           onChanged: (value) {
+                                            setState(() {
+                                              if (value) {
+                                                skillsChecked.add(child.name!);
+                                              } else {
+                                                skillsChecked
+                                                    .remove(child.name!);
+                                              }
+                                            });
                                             print(child.name!);
                                           },
                                         ),
