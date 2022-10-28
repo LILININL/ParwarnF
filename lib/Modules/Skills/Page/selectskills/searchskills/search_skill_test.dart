@@ -1,14 +1,12 @@
 //Search Page
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
-import 'package:plawarn/modules/skills/page/selectskills/widget/api/skill_data.dart';
+import 'package:plawarn/Modules/Skills/Page/selectskills/widget/api/skill_data.dart';
+
 import 'package:plawarn/widget/model/dtos/skill/all_skill.dart';
-import 'package:plawarn/widget/model/dtos/skill/leader_skill.dart';
 import 'package:plawarn/widget/theme/constants/scema_color.dart';
-import 'package:plawarn/widget/theme/constants/scema_textstyle.dart';
 
 class Searchskillall extends StatefulWidget {
   const Searchskillall({super.key});
@@ -22,8 +20,13 @@ class _SearchskillallState extends State<Searchskillall> {
   final FocusNode _focusNode = FocusNode();
   bool _isSearching = false;
   Future<List<Skillall>> skill = SkillallRequest.fetchSkill();
-
   final List _searchResult = [];
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,30 +81,67 @@ class _SearchskillallState extends State<Searchskillall> {
                       itemCount: snapshot.data!.length,
                       itemBuilder: (context, index) {
                         final skill = snapshot.data![index];
-                        return Card(
-                          child: ListTile(
-                            title: Text(skill.name!),
-                            leading: SizedBox(
-                              height: 40,
-                              width: 40,
-                              child: ClipRRect(
-                                child: Hero(
-                                  tag: 'imgae${skill.id}',
-                                  child: FadeInImage.assetNetwork(
-                                    placeholder: 'assets/images/loading.gif',
-                                    image: skill.icon!,
+
+                        return Column(
+                          children: <Widget>[
+                            Card(
+                              child: ListTile(
+                                title: Text(skill.name!),
+                                leading: SizedBox(
+                                  height: 40,
+                                  width: 40,
+                                  child: ClipRRect(
+                                    child: Hero(
+                                      tag: 'imgae${skill.id}',
+                                      child: FadeInImage.assetNetwork(
+                                        placeholder:
+                                            'assets/images/loading.gif',
+                                        image: skill.icon!,
+                                      ),
+                                    ),
                                   ),
+                                ),
+                                trailing: GFCheckbox(
+                                  value: skillsChecked.contains(skill.name!),
+                                  size: 25,
+                                  onChanged: (value) {
+                                    print(skill.name!);
+                                  },
                                 ),
                               ),
                             ),
-                            trailing: GFCheckbox(
-                              value: skillsChecked.contains(skill.name!),
-                              size: 25,
-                              onChanged: (value) {
-                                print(skill.name!);
+                            FutureBuilder(
+                              future: SkillallRequest.fetchSkill(),
+                              builder: (context, snapshot) {
+                                if (snapshot.hasData) {
+                                  return ListView.builder(
+                                    shrinkWrap: true,
+                                    itemCount: skill.childrens!.length,
+                                    itemBuilder: (context, index) {
+                                      final child = skill.childrens![index];
+                                      return Card(
+                                        child: ListTile(
+                                          title: Text(child.name!),
+                                          trailing: GFCheckbox(
+                                            value: skillsChecked
+                                                .contains(skill.name!),
+                                            size: 25,
+                                            onChanged: (value) {
+                                              print(child.name!);
+                                            },
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  );
+                                } else {
+                                  return const Center(
+                                    child: CircularProgressIndicator(),
+                                  );
+                                }
                               },
                             ),
-                          ),
+                          ],
                         );
                       },
                     );

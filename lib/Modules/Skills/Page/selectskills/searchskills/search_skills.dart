@@ -1,14 +1,14 @@
 //search skill page
 
 import 'package:flutter/material.dart';
-import 'package:plawarn/modules/skills/page/selectskills/widget/api/skill_data.dart';
+import 'package:plawarn/Modules/Skills/Page/selectskills/widget/api/skill_data.dart';
+
 import 'package:plawarn/widget/model/dtos/skill/all_skill.dart';
-import 'package:plawarn/widget/model/dtos/skill/childrens_skill.dart';
-import 'package:plawarn/widget/model/dtos/skill/leader_skill.dart';
-import 'package:plawarn/widget/theme/constants/scema_color.dart';
 
 class Skillsearch extends StatefulWidget {
   static const String routeName = '/skillsearch';
+
+  const Skillsearch({super.key});
 
   @override
   _SkillsearchState createState() => _SkillsearchState();

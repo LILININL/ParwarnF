@@ -104,7 +104,7 @@ class _HomePageState extends State<HomePage> {
   Container onboard() {
     return Container(
       constraints: const BoxConstraints(
-        maxHeight: 480,
+        maxHeight: 400,
         minWidth: double.infinity,
       ),
       color: Colors.transparent,
