@@ -103,7 +103,7 @@ class SkillallRequest {
   }
 
   static Future<List<Skillall>> fetchSkill() async {
-    await Future.delayed(const Duration(seconds: 1));
+    // await Future.delayed(const Duration(seconds: 1));
     SharedPreferences saveToken = await SharedPreferences.getInstance();
     final token = saveToken.getString('token');
     SharedPreferences saveType = await SharedPreferences.getInstance();

@@ -25,6 +25,18 @@ class _SearchskillallState extends State<Searchskillall> {
   @override
   void initState() {
     super.initState();
+    _searchController.addListener(() {
+      if (_searchController.text.isEmpty) {
+        setState(() {
+          _isSearching = false;
+          _searchResult.clear();
+        });
+      } else {
+        setState(() {
+          _isSearching = true;
+        });
+      }
+    });
   }
 
   @override
