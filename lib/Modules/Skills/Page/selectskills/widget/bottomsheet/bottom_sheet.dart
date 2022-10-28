@@ -108,8 +108,10 @@ class _ButtonSheetState extends State<ButtonSheet> {
                               value: skillsChecked
                                   .contains(snapshot.data![index].name!),
                               onChanged: (val) {
-                                _onSelected(val, snapshot.data![index].name!,
-                                    snapshot.data![index].type!);
+                                _onSelected(
+                                  val,
+                                  snapshot.data![index].name!,
+                                );
                               },
                               title: Text(snapshot.data![index].name!,
                                   style: textStyle18),
@@ -162,7 +164,7 @@ class _ButtonSheetState extends State<ButtonSheet> {
 
   late List<skilladd> childskillid;
 
-  void _onSelected(bool selected, String id, String parent) {
+  void _onSelected(bool selected, String id) {
     if (selected == true && skillsChecked.length <= 2) {
       setState(() {
         skillsChecked.add(id);

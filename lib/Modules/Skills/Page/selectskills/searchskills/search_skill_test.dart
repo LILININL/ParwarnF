@@ -55,7 +55,7 @@ class _SearchskillallState extends State<Searchskillall> {
             //search box
             controller: chskill.searchController,
             focusNode: chskill.focusNode,
-            onChanged: chskill.search,
+            onChanged: chskill.searchOperation,
             decoration: const InputDecoration(
               hintText: 'ค้นหาทักษะ',
               hintStyle: TextStyle(color: Colors.grey),
@@ -102,15 +102,17 @@ class _SearchskillallState extends State<Searchskillall> {
                                 activeBorderColor: colorG,
                                 title:
                                     Text(skill.name!, style: textStyle20bold),
-                                value: skillsChecked.contains(skill.name!),
-                                onChanged: (value) {
-                                  setState(() {
-                                    if (value) {
-                                      skillsChecked.add(skill.name!);
-                                    } else {
-                                      skillsChecked.remove(skill.name!);
-                                    }
-                                  });
+                                value:
+                                    chskill.skillsChecked.contains(skill.name!),
+                                onChanged: (val) {
+                                  chskill.onSelected(val, skill.name!);
+                                  // if (value == true &&
+                                  //     skillsChecked.length <= 3) {
+                                  //   skillsChecked.add(skill.name!);
+                                  //   print(skillsChecked);
+                                  // } else {
+                                  //   skillsChecked.remove(skill.name!);
+                                  // }
                                 },
                               ),
                             ),
@@ -132,17 +134,11 @@ class _SearchskillallState extends State<Searchskillall> {
                                             child.name!,
                                             style: textStyle18bold,
                                           ),
-                                          value: skillsChecked
+                                          value: chskill.skillsChecked
                                               .contains(child.name!),
-                                          onChanged: (value) {
-                                            setState(() {
-                                              if (value) {
-                                                skillsChecked.add(child.name!);
-                                              } else {
-                                                skillsChecked
-                                                    .remove(child.name!);
-                                              }
-                                            });
+                                          onChanged: (val) {
+                                            chskill.onSelected(
+                                                val, child.name!);
                                             print(child.name!);
                                           },
                                         ),
@@ -173,5 +169,3 @@ class _SearchskillallState extends State<Searchskillall> {
     );
   }
 }
-
-List<String> skillsChecked = [];
