@@ -39,7 +39,7 @@ class Searchskillbar extends StatelessWidget implements PreferredSizeWidget {
             border: Border.all(color: colorc)),
         child: TextField(
           onTap: () {
-            Get.to(() => Searchskillall(),
+            Get.to(() => const Searchskillall(),
                 // duration: const Duration(seconds: 1),
                 transition: Transition.rightToLeft);
           },

@@ -98,6 +98,8 @@ class _SearchskillallState extends State<Searchskillall> {
                                     : const Icon(Icons.image),
                                 type: GFCheckboxType.basic,
                                 size: 25,
+                                inactiveBgColor: colorE,
+                                activeBorderColor: colorG,
                                 title:
                                     Text(skill.name!, style: textStyle20bold),
                                 value: skillsChecked.contains(skill.name!),
@@ -124,6 +126,8 @@ class _SearchskillallState extends State<Searchskillall> {
                                       return Card(
                                         child: GFCheckboxListTile(
                                           size: 25,
+                                          inactiveBgColor: colorE,
+                                          activeBorderColor: colorG,
                                           title: Text(
                                             child.name!,
                                             style: textStyle18bold,
