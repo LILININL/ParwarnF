@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:plawarn/Modules/Skills/Page/selectskills/searchskills/search_controller.dart';
 import 'package:plawarn/Modules/Skills/Page/selectskills/widget/api/skill_data.dart';
 
 import 'package:plawarn/widget/model/dtos/skill/all_skill.dart';
@@ -16,27 +17,11 @@ class Searchskillall extends StatefulWidget {
 }
 
 class _SearchskillallState extends State<Searchskillall> {
-  final TextEditingController _searchController = TextEditingController();
-  final FocusNode _focusNode = FocusNode();
-  bool _isSearching = false;
-  Future<List<Skillall>> skill = SkillallRequest.fetchSkill();
-  final List _searchResult = [];
+  final chskill = Get.put(SearchskillallController());
 
   @override
   void initState() {
     super.initState();
-    _searchController.addListener(() {
-      if (_searchController.text.isEmpty) {
-        setState(() {
-          _isSearching = false;
-          _searchResult.clear();
-        });
-      } else {
-        setState(() {
-          _isSearching = true;
-        });
-      }
-    });
   }
 
   @override
@@ -66,13 +51,18 @@ class _SearchskillallState extends State<Searchskillall> {
               borderRadius: BorderRadius.circular(6),
               border: Border.all(color: colorc)),
           child: TextField(
-            focusNode: _focusNode,
-            controller: _searchController,
+            //search box
+            controller: chskill.searchController,
+            focusNode: chskill.focusNode,
             decoration: const InputDecoration(
-                border: InputBorder.none,
-                prefixIcon: Icon(Icons.search),
-                hintText: 'ค้นหาทักษะ',
-                hintStyle: TextStyle(color: Colors.grey)),
+              hintText: 'Search',
+              hintStyle: TextStyle(color: Colors.grey),
+              border: InputBorder.none,
+              prefixIcon: Icon(
+                Icons.search,
+                color: Colors.grey,
+              ),
+            ),
           ),
         ),
       ),
@@ -86,7 +76,7 @@ class _SearchskillallState extends State<Searchskillall> {
             Expanded(
               //Card Checkbox skills
               child: FutureBuilder<List<Skillall>>(
-                future: skill,
+                future: SkillallRequest.fetchSkill(),
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
                     return ListView.builder(
